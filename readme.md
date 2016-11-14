@@ -1,2 +1,2 @@
-Descripional website
+Descriptional website
 
