@@ -1,0 +1,17 @@
+{
+  "name": "anadanciu.com",
+  "homepage": "https://github.com/anadanciu/personal-project",
+  "authors": [
+    "Ana Danciu <a.danciu@rosoftlab.net>"
+  ],
+  "description": "",
+  "main": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    ".sass-cache",
+    "test",
+    "tests"
+  ]
+}

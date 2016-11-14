@@ -1,0 +1,69 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'uninstall',
+1 verbose cli   'babel-preset-latest',
+1 verbose cli   'babel-preset-es2015',
+1 verbose cli   'babel-plugin-transform-es2015-template-literals',
+1 verbose cli   'babel-plugin-transform-es2015-template-literals',
+1 verbose cli   'gulp-babel' ]
+2 info using npm@2.15.9
+3 info using node@v4.5.0
+4 verbose unbuild node_modules/babel-preset-latest
+5 verbose unbuild node_modules/babel-preset-es2015
+6 verbose unbuild node_modules/babel-plugin-transform-es2015-template-literals
+7 verbose unbuild node_modules/babel-plugin-transform-es2015-template-literals
+8 verbose unbuild node_modules/gulp-babel
+9 info preuninstall babel-plugin-transform-es2015-template-literals@6.8.0
+10 info preuninstall babel-plugin-transform-es2015-template-literals@6.8.0
+11 info uninstall babel-plugin-transform-es2015-template-literals@6.8.0
+12 info uninstall babel-plugin-transform-es2015-template-literals@6.8.0
+13 info preuninstall babel-preset-latest@6.16.0
+14 info preuninstall babel-preset-es2015@6.18.0
+15 verbose unbuild rmStuff babel-plugin-transform-es2015-template-literals@6.8.0 from /Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules
+16 info postuninstall babel-plugin-transform-es2015-template-literals@6.8.0
+17 verbose unbuild rmStuff babel-plugin-transform-es2015-template-literals@6.8.0 from /Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules
+18 info postuninstall babel-plugin-transform-es2015-template-literals@6.8.0
+19 info preuninstall gulp-babel@6.1.2
+20 info uninstall babel-preset-latest@6.16.0
+21 info uninstall babel-preset-es2015@6.18.0
+22 silly gentlyRm /Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules/babel-plugin-transform-es2015-template-literals is being purged from base /Users/anadanciu/GitHub/personal-project-anadanciu.com
+23 verbose gentlyRm don't care about contents; nuking /Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules/babel-plugin-transform-es2015-template-literals
+24 silly gentlyRm /Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules/babel-plugin-transform-es2015-template-literals is being purged from base /Users/anadanciu/GitHub/personal-project-anadanciu.com
+25 verbose gentlyRm don't care about contents; nuking /Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules/babel-plugin-transform-es2015-template-literals
+26 info uninstall gulp-babel@6.1.2
+27 silly vacuum-fs purging /Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules/babel-plugin-transform-es2015-template-literals
+28 silly vacuum-fs purging /Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules/babel-plugin-transform-es2015-template-literals
+29 verbose unbuild rmStuff babel-preset-latest@6.16.0 from /Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules
+30 info postuninstall babel-preset-latest@6.16.0
+31 verbose unbuild rmStuff babel-preset-es2015@6.18.0 from /Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules
+32 info postuninstall babel-preset-es2015@6.18.0
+33 verbose unbuild rmStuff gulp-babel@6.1.2 from /Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules
+34 info postuninstall gulp-babel@6.1.2
+35 silly gentlyRm /Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules/babel-preset-latest is being purged from base /Users/anadanciu/GitHub/personal-project-anadanciu.com
+36 verbose gentlyRm don't care about contents; nuking /Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules/babel-preset-latest
+37 silly gentlyRm /Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules/babel-preset-es2015 is being purged from base /Users/anadanciu/GitHub/personal-project-anadanciu.com
+38 verbose gentlyRm don't care about contents; nuking /Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules/babel-preset-es2015
+39 silly vacuum-fs purging /Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules/babel-preset-latest
+40 silly vacuum-fs purging /Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules/babel-preset-es2015
+41 silly gentlyRm /Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules/gulp-babel is being purged from base /Users/anadanciu/GitHub/personal-project-anadanciu.com
+42 verbose gentlyRm don't care about contents; nuking /Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules/gulp-babel
+43 silly vacuum-fs purging /Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules/gulp-babel
+44 silly vacuum-fs quitting because other entries in /Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules
+45 silly vacuum-fs quitting because other entries in /Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules
+46 silly vacuum-fs quitting because other entries in /Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules
+47 verbose stack Error: ENOTEMPTY: directory not empty, rmdir '/Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules/babel-plugin-transform-es2015-template-literals/node_modules/babel-runtime/node_modules'
+47 verbose stack     at Error (native)
+48 verbose cwd /Users/anadanciu/GitHub/personal-project-anadanciu.com
+49 error Darwin 15.4.0
+50 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "uninstall" "babel-preset-latest" "babel-preset-es2015" "babel-plugin-transform-es2015-template-literals" "babel-plugin-transform-es2015-template-literals" "gulp-babel"
+51 error node v4.5.0
+52 error npm  v2.15.9
+53 error path /Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules/babel-plugin-transform-es2015-template-literals/node_modules/babel-runtime/node_modules
+54 error code ENOTEMPTY
+55 error errno -66
+56 error syscall rmdir
+57 error ENOTEMPTY: directory not empty, rmdir '/Users/anadanciu/GitHub/personal-project-anadanciu.com/node_modules/babel-plugin-transform-es2015-template-literals/node_modules/babel-runtime/node_modules'
+58 error If you need help, you may report this error at:
+58 error     <https://github.com/npm/npm/issues>
+59 verbose exit [ -66, true ]
