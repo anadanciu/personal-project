@@ -1,0 +1,744 @@
+@import '../../../../sass_helpers/_mixins.scss';
+
+/*===========
+FORMAT COPIED FROM sass_helpers/_variables.scss
+============*/
+
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700italic,700&subset=latin,latin-ext);
+//used for main text
+$font-primary: 'Ubuntu',
+sans-serif;
+//for inputs defined by angular-material
+$font-secondary: 'Roboto',
+sans-serif;
+//font-size-general
+$font-size: 16;
+//font-size-title
+$font-size-special: 18;
+$font-size-secondary: 14;
+//font-size-icons
+$font-size-tertiary: 21;
+$orange: #FF9966;
+$orangeActive: #FFCC99;
+$marinBlue: #003366;
+$marinBlueActive: #4C7094;
+//#1a67b5
+$grey: #d3cec9;
+$greyish: #E7E5E3;
+$black: #000;
+$white: #fff;
+$vernil: #85C744;
+$blue: #4F8EDC;
+$purple: #9358AC;
+$magenta: #E73C68;
+$green: #16A085;
+$ciel: #2BBCE0;
+$night: #34495E;
+$yellow: #cab304;
+//backgrounds  large components
+$color-primary: $orange;
+$color-secondary: $marinBlue;
+$color-tertiary: $greyish;
+$color-tertiary-exception: $grey;
+$color-cuart: $white;
+$color-opinion: $vernil;
+$color-webchannel: $ciel;
+$color-interview: $magenta;
+$color-kiosk: $purple;
+$color-experience: $yellow;
+//fonts color
+$color-font-primary: $black;
+$color-font-secondary: $grey;
+$color-font-tertiary: $marinBlue;
+//backgrounds buttons on different states
+$color-primary-active: $orangeActive;
+$color-secondary-active: $marinBlueActive;
+
+/*
+ * VARIABLES FOR MEDIA QUERIES
+ *
+ */
+
+$iphone4: "(min-width: 320px) and (max-width: 480px)";
+$iphone4-portrait: "(min-width: 320px) and (max-width:390px)"; //alternative - @include bp-extra-small
+$iphone4-landscape: "(min-width: 391px) and (max-width: 480px)";
+$miniTablet: "(min-width: 481px) and (max-width: 768px)";
+$miniPortrait: "(min-width: 481px) and (max-width: 633px)";
+
+/*
+ * PLACEHOLDERS
+ *
+ */
+
+
+/*****
+GENERAL COLOURED FORM
+****/
+
+%md-container-coloured-input {
+    $color-unfocused: $color-secondary;
+    $color-focused: $color-secondary;
+    $color-required: $color-primary;
+    label {
+        color: rgba-color($color-unfocused);
+    }
+    //for label inside input and border - not invalid but focused
+    md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused .md-input,
+    md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+        border-color: rgba-color($color-focused);
+        color: rgba-color($color-focused);
+    }
+    //for icon and label - not invalid but focused -white
+    md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused md-icon,
+    md-input-container:not(.md-input-invalid).md-input-focused md-icon,
+    md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused md-icon,
+    md-input-container:not(.md-input-invalid).md-input-focused md-icon .fa,
+    md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused label,
+    md-input-container:not(.md-input-invalid).md-input-focused label,
+    md-input-container.md-default-theme .md-input,
+    md-input-container .md-input,
+    md-input-container.md-default-theme:not(.md-input-invalid).md-input-has-value label,
+    md-input-container:not(.md-input-invalid).md-input-has-value label {
+        color: rgba-color($color-focused);
+        border-color: rgba-color($color-focused);
+    }
+    //when invalid and focused - form label  and for label inside input and border, also icon
+    md-input-container.md-default-theme.md-input-invalid.md-input-focused label,
+    md-input-container.md-input-invalid.md-input-focused label,
+    md-input-container.md-default-theme.md-input-invalid.md-input-focused label,
+    md-input-container.md-input-invalid.md-input-has-value label,
+    md-input-container.md-default-theme.md-input-invalid.md-input-focused label,
+    md-input-container.md-input-invalid.md-input-has-value md-icon,
+    md-input-container.md-default-theme.md-input-invalid.md-input-focused md-icon,
+    md-input-container.md-input-invalid.md-input-focused md-icon,
+    md-input-container.md-default-theme.md-input-invalid.md-input-focused .md-input,
+    md-input-container.md-input-invalid.md-input-focused .md-input,
+    md-input-container.md-default-theme.md-input-invalid .md-input,
+    md-input-container.md-input-invalid .md-input,
+    md-input-container.md-input-invalid.md-input-focused md-icon .fa {
+        border-color: rgba-color($color-required);
+        color: rgba-color($color-required);
+    }
+    //when out of focus but invalid and has value - icon.fa, label
+    md-input-container:not(md-input-focused).md-input-invalid,
+    md-input-container:not(md-input-focused).md-input-invalid label,
+    md-input-container:not(md-input-focused).md-input-invalid,
+    md-input-container:not(md-input-focused).md-input-invalid.md-input-has-value label,
+    md-input-container:not(md-input-focused).md-input-invalid,
+    md-input-container:not(md-input-focused).md-input-invalid md-icon .fa,
+    md-input-container:not(md-input-focused).md-input-invalid,
+    md-input-container:not(md-input-focused).md-input-invalid.md-input-has-value md-icon .fa,
+    md-input-container:not(md-input-focused).md-input-invalid,
+    md-input-container:not(md-input-focused).md-input-invalid md-icon,
+    md-input-container:not(md-input-focused).md-input-invalid,
+    md-input-container:not(md-input-focused).md-input-invalid.md-input-has-value md-icon {
+        color: rgba-color($color-required);
+        border-color: rgba-color($color-required);
+    }
+    //when out of focus but invalid and has no value
+    md-input-container:not(.md-input-has-value).md-input-invalid:not(.md-input-focused) {
+        label,
+        md-icon,
+        md-icon .fa,
+        .ng-active>div,
+        input[required="true"]:not(:focus).ng-empty.ng-touched {
+            border-color: rgba-color($color-unfocused);
+            color: rgba-color($color-unfocused);
+        }
+    }
+    //when out of focus but valid
+    md-input-container:not(.md-input-has-value) input:not(:focus),
+    md-input-container:not(.md-input-invalid) input:not(:focus) {
+        border-color: rgba-color($color-unfocused);
+    }
+    md-input-container>md-icon {
+        color: rgba-color($color-unfocused);
+    }
+}
+
+%small-input {
+    md-input-container {
+        margin: 0;
+        .md-errors-spacer {
+            display: none;
+        }
+    }
+}
+
+%fab-button-disabled {
+    a.md-button.md-default-theme.md-raised[disabled],
+    a.md-button.md-raised[disabled],
+    a.md-button.md-default-theme.md-fab[disabled],
+    a.md-button.md-fab[disabled],
+    .md-button.md-default-theme.md-raised[disabled],
+    .md-button.md-raised[disabled],
+    .md-button.md-default-theme.md-fab[disabled],
+    .md-button.md-fab[disabled] {
+        background-color: rgba-color($color-tertiary);
+        color: rgba-color($color-font-primary);
+    }
+}
+
+%button-for-coloured-form {
+    $color-active: $color-secondary;
+    $color-hover-active: $color-secondary-active;
+    .md-button.md-default-theme.md-primary.md-raised,
+    button.md-primary.md-raised:not([disabled]),
+    .md-button.md-default-theme.md-primary.md-fab,
+    .md-button.md-primary.md-fab,
+    .md-button.md-default-theme.md-primary.md-raised,
+    .md-button.md-primary.md-raised:not([disabled="disabled"]),
+    .md-button.md-default-theme.md-primary.md-fab,
+    .md-button.md-primary.md-fab,
+    .md-button.md-raised.md-primary:not([disabled]) {
+        background-color: rgba-color($color-active) !important;
+    }
+    .md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover,
+    .md-button.md-primary.md-raised:not([disabled]):hover,
+    .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover,
+    .md-button.md-primary.md-fab:not([disabled]):hover,
+    .md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover,
+    .md-button.md-primary.md-raised:not([disabled]):hover,
+    .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover,
+    .md-button.md-primary.md-fab:not([disabled]):hover {
+        background-color: rgba-color($color-hover-active) !important;
+    }
+}
+
+%checkbox-for-coloured-form {
+    $color-unfocused: $color-cuart;
+    $color-checked: $color-secondary;
+    md-checkbox .md-container {
+        left: 20%;
+    }
+    //the default configuration
+    /*md-checkbox {
+        margin: 10px 0;
+    }*/
+    /*md-checkbox .md-container {
+        left: 0;
+    }
+
+    md-checkbox .md-label {
+        margin-right: 15px;
+            
+    }*/
+    md-checkbox.md-default-theme:not([disabled]).md-primary.md-checked .md-icon,
+    md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
+        background-color: rgba-color($color-checked);
+    }
+    .vrui-accept-terms-container {
+        margin-top: 5px;
+        .vrui-accept-terms-label {
+            display: inline;
+            @include font-size($font-size-secondary);
+        }
+    }
+}
+
+%radio-for-coloured-form {
+    $color-focused: $color-secondary;
+    md-radio-button:not([disabled]).md-primary .md-on {
+        background-color: rgba-color($color-focused);
+    }
+}
+
+%spinner-for-coloured-form {
+    $color-active: $color-secondary;
+    md-progress-circular.md-default-theme.md-hue-2 .md-inner .md-right .md-half-circle,
+    md-progress-circular.md-hue-2 .md-inner .md-right .md-half-circle {
+        border-right-color: rgba-color($color-active);
+    }
+    md-progress-circular.md-default-theme.md-hue-2 .md-inner .md-left .md-half-circle,
+    md-progress-circular.md-hue-2 .md-inner .md-left .md-half-circle,
+    md-progress-circular.md-default-theme.md-hue-2 .md-inner .md-right .md-half-circle,
+    md-progress-circular.md-hue-2 .md-inner .md-right .md-half-circle {
+        border-top-color: rgba-color($color-active);
+    }
+    md-progress-circular {
+        text-align: center;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        right: auto;
+    }
+}
+
+%error-messages-for-coloured-form {
+    $color-active: $color-primary;
+    md-input-container.md-default-theme.md-input-invalid ng-message,
+    md-input-container.md-input-invalid ng-message,
+    md-input-container.md-default-theme.md-input-invalid data-ng-message,
+    md-input-container.md-input-invalid data-ng-message,
+    md-input-container.md-default-theme.md-input-invalid x-ng-message,
+    md-input-container.md-input-invalid x-ng-message,
+    md-input-container.md-default-theme.md-input-invalid [ng-message],
+    md-input-container.md-input-invalid [ng-message],
+    md-input-container.md-default-theme.md-input-invalid [data-ng-message],
+    md-input-container.md-input-invalid [data-ng-message],
+    md-input-container.md-default-theme.md-input-invalid [x-ng-message],
+    md-input-container.md-input-invalid [x-ng-message],
+    md-input-container.md-default-theme.md-input-invalid [ng-message-exp],
+    md-input-container.md-input-invalid [ng-message-exp],
+    md-input-container.md-default-theme.md-input-invalid [data-ng-message-exp],
+    md-input-container.md-input-invalid [data-ng-message-exp],
+    md-input-container.md-default-theme.md-input-invalid [x-ng-message-exp],
+    md-input-container.md-input-invalid [x-ng-message-exp],
+    md-input-container.md-default-theme.md-input-invalid .md-char-counter,
+    md-input-container.md-input-invalid .md-char-counter {
+        color: rgba-color($color-active);
+    }
+}
+
+%icon-button-for-coloured-form {
+    $color-unfocused: $color-secondary;
+    $color-required: $color-cuart;
+    background-color: transparent;
+    margin: 14px 0 4px 0;
+    md-icon {
+        vertical-align: sub;
+        @include container-size(16px, 16px);
+        .fa {
+            color: rgba-color($color-required) !important;
+            @include font-size($font-size);
+            display: block;
+            @include primary-transition();
+            /*&:hover {
+            color: rgba-color($color-required, 0.8);
+        }*/
+        }
+    }
+}
+
+%tabs-for-coloured-form {
+    md-tabs.md-default-theme .md-tab,
+    md-tabs {
+        .md-ripple-container {
+            color: transparent;
+        }
+        .md-tab {
+            .md-ripple-container {
+                color: transparent;
+            }
+            &.md-active {
+                color: rgba-color($color-secondary);
+            }
+        }
+        md-pagination-wrapper {
+            min-width: 250px;
+        }
+        md-ink-bar {
+            color: rgba-color($color-primary);
+            background: rgba-color($color-primary);
+        }
+    }
+}
+
+%toolbar-for-coloured-form {
+    $color-background: $color-secondary;
+    $color-background-sec: $color-tertiary;
+    $color-text: $color-cuart;
+    $color-text-sec: $color-secondary;
+    md-toolbar.md-primary.md-default-theme:not(.md-menu-toolbar),
+    md-toolbar.md-primary:not(.md-menu-toolbar) {
+        background-color: rgba-color($color-background);
+        min-height: 45px;
+        height: 45px;
+    }
+    md-toolbar.md-primary *:not(.fa) {
+        color: rgba-color($color-text);
+    }
+    md-toolbar.md-secondary.md-default-theme:not(.md-menu-toolbar),
+    md-toolbar.md-secondary:not(.md-menu-toolbar) {
+        background-color: rgba-color($color-background-sec);
+        min-height: 45px;
+        height: 45px;
+    }
+    md-toolbar.md-secondary *:not(.fa) {
+        color: rgba-color($color-text-sec);
+    }
+}
+
+%toolbar-for-pages-form {
+    $color-background: $color-tertiary;
+    $color-text: $color-secondary;
+    md-toolbar.md-default-theme:not(.md-menu-toolbar),
+    md-toolbar:not(.md-menu-toolbar) {
+        background-color: rgba-color($color-background);
+        min-height: 45px;
+        height: 45px;
+    }
+    md-toolbar * {
+        color: rgba-color($color-text);
+    }
+}
+
+%hint-for-coloured-form {
+    $color-text: rgba-color($color-secondary);
+    .hint {
+        /* Position the hint */
+        position: absolute;
+        left: 2px;
+        right: auto;
+        bottom: 7px;
+        /* Copy styles from ng-messages */
+        font-size: 12px;
+        line-height: 14px;
+        transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+        /* Set our own color */
+        color: $color-text;
+    }
+    .hint.ng-hide,
+    .hint.ng-enter,
+    .hint.ng-leave.ng-leave-active {
+        bottom: 26px;
+        opacity: 0;
+    }
+    .hint.ng-leave,
+    .hint.ng-enter.ng-enter-active {
+        bottom: 7px;
+        opacity: 1;
+    }
+}
+
+%md-select-for-coloured-form {
+    $color-focused: $color-secondary;
+    md-select.md-default-theme .md-select-value,
+    md-select .md-select-value {
+        border-bottom-color: rgba-color($color-focused, 0.2);
+    }
+    md-select.md-default-theme:not([disabled]):focus .md-select-value,
+    md-select:not([disabled]):focus .md-select-value {
+        border-bottom-color: rgba-color($color-focused);
+    }
+    md-select md-option[selected] {
+        color: rgba-color($color-focused) !important;
+    }
+}
+
+
+/*****
+GENERAL WHITE FORM
+****/
+
+%md-container-input-white {
+    $color-unfocused: $color-cuart;
+    $color-focused: $color-cuart;
+    $color-required: $color-primary;
+    label {
+        color: rgba-color($color-unfocused, 0.8);
+    }
+    //for label inside input and border - not invalid but focused -white
+    md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused .md-input,
+    md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+        border-color: rgba-color($color-focused, 0.8);
+        color: rgba-color($color-focused, 0.8);
+    }
+    //for icon and label - not invalid but focused -white
+    md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused md-icon,
+    md-input-container:not(.md-input-invalid).md-input-focused md-icon,
+    md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused md-icon,
+    md-input-container:not(.md-input-invalid).md-input-focused md-icon .fa,
+    md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused label,
+    md-input-container:not(.md-input-invalid).md-input-focused label,
+    md-input-container.md-default-theme .md-input,
+    md-input-container .md-input,
+    md-input-container.md-default-theme:not(.md-input-invalid).md-input-has-value label,
+    md-input-container:not(.md-input-invalid).md-input-has-value label {
+        color: rgba-color($color-focused, 0.8);
+        border-color: rgba-color($color-focused, 0.8);
+    }
+    // when invalid and focused - form label  and for label inside input and border, also icon
+    md-input-container.md-default-theme.md-input-invalid.md-input-focused label,
+    md-input-container.md-input-invalid.md-input-focused label,
+    md-input-container.md-default-theme.md-input-invalid.md-input-focused label,
+    md-input-container.md-input-invalid.md-input-has-value label,
+    md-input-container.md-default-theme.md-input-invalid.md-input-focused label,
+    md-input-container.md-input-invalid.md-input-has-value md-icon,
+    md-input-container.md-default-theme.md-input-invalid.md-input-focused md-icon,
+    md-input-container.md-input-invalid.md-input-focused md-icon,
+    md-input-container.md-default-theme.md-input-invalid.md-input-focused .md-input,
+    md-input-container.md-input-invalid.md-input-focused .md-input,
+    md-input-container.md-default-theme.md-input-invalid .md-input,
+    md-input-container.md-input-invalid .md-input,
+    md-input-container.md-input-invalid.md-input-focused md-icon .fa,
+    {
+        border-color: rgba-color($color-required);
+        color: rgba-color($color-required);
+    }
+    //when out of focus
+    md-input-container:not(.md-input-has-value) input:not(:focus) {
+        border-color: rgba-color($color-unfocused, 0.8);
+    }
+    //when out of focus but invalid - icon.fa, label
+    md-input-container:not(md-input-focused).md-input-invalid,
+    md-input-container:not(md-input-focused).md-input-invalid label {
+        color: rgba-color($color-unfocused, 0.8);
+    }
+    md-input-container>md-icon {
+        color: rgba-color($color-unfocused, 0.8);
+        svg {
+            fill: $color-unfocused;
+        }
+    }
+}
+
+%button-for-white-form {
+    $color-disabled: $color-cuart;
+    $color-font: $color-font-secondary;
+    .md-button.md-fab.md-mini {
+        line-height: 28px;
+    }
+    a.md-button.md-default-theme.md-raised[disabled],
+    a.md-button.md-raised[disabled],
+    a.md-button.md-default-theme.md-fab[disabled],
+    a.md-button.md-fab[disabled],
+    .md-button.md-default-theme.md-raised[disabled],
+    .md-button.md-raised[disabled],
+    .md-button.md-default-theme.md-fab[disabled],
+    .md-button.md-fab[disabled] {
+        background-color: rgba-color($color-disabled, 0.3);
+        color: rgba-color($color-font) !important;
+    }
+    .md-button.md-default-theme.md-primary.md-raised,
+    button.md-primary.md-raised:not([disabled]),
+    .md-button.md-default-theme.md-primary.md-fab,
+    .md-button.md-primary.md-fab,
+    .md-button.md-default-theme.md-primary.md-raised,
+    .md-button.md-primary.md-raised:not([disabled="disabled"]),
+    .md-button.md-default-theme.md-primary.md-fab,
+    .md-button.md-primary.md-fab,
+    .md-button.md-raised.md-primary:not([disabled]) {
+        background-color: rgba-color($color-disabled) !important;
+        color: rgba-color($color-secondary);
+    }
+}
+
+%icon-button-for-white-form {
+    $color-unfocused: $color-cuart;
+    $color-required: $color-primary;
+    background-color: transparent;
+    margin: 14px 0 4px 0;
+    md-icon {
+        vertical-align: sub;
+    }
+    .fa {
+        color: rgba-color($color-unfocused);
+        @include font-size($font-size-tertiary);
+        display: block;
+        @include primary-transition();
+        &:hover {
+            color: rgba-color($color-unfocused, 0.8);
+        }
+    }
+}
+
+%checkbox-for-white-form {
+    $color-unfocused: $color-cuart;
+    $color-checked: $color-secondary;
+    md-checkbox {
+        margin-bottom: 0;
+        &:not([disabled]).md-primary .md-icon {
+            border-color: rgba-color($color-unfocused, 0.8);
+            svg {
+                fill: $color-unfocused;
+            }
+        }
+        &:not([disabled]).md-primary.md-checked .md-icon {
+            background-color: rgba-color($color-checked);
+        }
+        .md-label {
+            color: rgba-color($color-unfocused, 0.8);
+        }
+    }
+}
+
+%spinner-for-white-form {
+    $color-active: $color-cuart;
+    md-progress-circular.md-default-theme.md-hue-2 .md-inner .md-right .md-half-circle,
+    md-progress-circular.md-hue-2 .md-inner .md-right .md-half-circle {
+        border-right-color: rgba-color($color-active);
+    }
+    md-progress-circular.md-default-theme.md-hue-2 .md-inner .md-left .md-half-circle,
+    md-progress-circular.md-hue-2 .md-inner .md-left .md-half-circle,
+    md-progress-circular.md-default-theme.md-hue-2 .md-inner .md-right .md-half-circle,
+    md-progress-circular.md-hue-2 .md-inner .md-right .md-half-circle {
+        border-top-color: rgba-color($color-active);
+    }
+}
+
+
+/*****
+GENERAL FOR RED FORM
+****/
+
+%button-for-red-form {
+    $color-disabled: $color-cuart;
+    $color-font: $color-font-secondary;
+    a.md-button.md-default-theme.md-raised[disabled],
+    a.md-button.md-raised[disabled],
+    a.md-button.md-default-theme.md-fab[disabled],
+    a.md-button.md-fab[disabled],
+    .md-button.md-default-theme.md-raised[disabled],
+    .md-button.md-raised[disabled],
+    .md-button.md-default-theme.md-fab[disabled],
+    .md-button.md-fab[disabled] {
+        background-color: rgba-color($color-disabled, 0.3);
+        color: rgba-color($color-font) !important;
+    }
+}
+
+%icon-button-for-red-form {
+    $color-unfocused: $color-cuart;
+    $color-required: $color-primary;
+    background-color: transparent;
+    margin: 14px 0 4px 0;
+    md-icon {
+        vertical-align: sub;
+    }
+    .fa {
+        color: rgba-color($color-unfocused);
+        @include font-size($font-size-tertiary);
+        display: block;
+        @include primary-transition();
+        &:hover {
+            color: rgba-color($color-unfocused, 0.8);
+        }
+    }
+}
+
+%no-side-margin {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+%fa-fab-buttons {
+    .fa {
+        @include font-size($font-size-tertiary);
+        vertical-align: middle;
+    }
+}
+
+%flex-column {
+    display: flex;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    @include container-size(100%, 100%);
+}
+
+%flex-row {
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    @include container-size(100%, 100%);
+}
+
+%loginFormLineHeight {
+    line-height: 63px;
+}
+
+%visuallyhidden {
+    margin: -1px;
+    padding: 0;
+    @include container-size(1px, 1px);
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip: rect(0, 0, 0, 0);
+    position: absolute;
+}
+
+%bgPos {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+%skinText {
+    color: $color-secondary;
+    margin: 0;
+}
+
+%filters-div {
+    @include container-size(100%, 725px);
+    @include bp-extra-large {
+        @include container-size(100%, 615px);
+    }
+    @include bp-large {
+        /*normally is 432px*/
+        @include container-size(100%, 615px);
+    }
+    @include bp-medium {
+        /*normally is 339px*/
+        @include container-size(100%, 385px);
+    }
+    @include bp-extra-medium {
+        @include container-size(100%, 455px);
+    }
+    @include bp-small {
+        /*normally is 180px*/
+        @include container-size(100%, 180px);
+    }
+}
+
+%fixed-container {
+    display: table;
+    &>div {
+        display: table-cell;
+        vertical-align: middle;
+    }
+}
+
+%icons {
+    /*to be included: w&h*/
+    display: block;
+    cursor: pointer;
+    @include rounded-corner(50%);
+    @include transition(background-color .4s ease-out);
+    text-align: center;
+    outline: none;
+    border: none;
+    background-color: $color-primary;
+    background-repeat: no-repeat;
+    background-position: center center;
+    &:hover {
+        background-color: $color-primary-active;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    /*&:active {
+        box-shadow: inset 0 3px 5px rgba(0,0,0,.5);
+    }*/
+    &:focus {
+        outline: none;
+        border: none;
+    }
+}
+
+%btn {
+    @include btn-background($color-primary, $color-primary-active);
+    outline: transparent;
+    @include font-size(16);
+    padding: 8px 19px 7px;
+    font-family: $font-primary;
+    color: $color-secondary;
+    text-transform: uppercase;
+    font-weight: 400;
+    @include transition(all 100ms linear);
+    @include rounded-corner(4px);
+}
+
+%btn-grey {
+    @include btn-background($color-cuart, #DE450A);
+    outline: transparent;
+    @include font-size(16);
+    padding: 9px 19px 7px;
+    font-family: $font-primary;
+    color: $color-primary;
+    text-transform: uppercase;
+    font-weight: 400;
+    @include transition(all 100ms linear);
+    @include rounded-corner(4px);
+}
