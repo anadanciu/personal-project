@@ -19,52 +19,52 @@ var order = require('gulp-order');
 
 
 var src = {
-    sass:['app/styles/sass/**/*.scss'],
-  css: ['app/styles/**/*.css'],
-  js: ['app/scripts/**/*.js'],
-  bower: ['../personal-project/app/bower.json', 'app/.bowerrc']
-} 
+    sass: ['app/styles/sass/**/*.scss'],
+    css: ['app/styles/**/*.css'],
+    js: ['app/scripts/**/*.js'],
+    bower: ['../personal-project/app/bower.json', 'app/.bowerrc']
+}
 
 var dist = {
-  all: ['app/**/*'],
-  css: 'app/styles/css',
-  vendor: 'app/scripts/vendors'
+    all: ['app/**/*'],
+    css: 'app/styles/css',
+    vendor: 'app/scripts/vendors'
 }
 
 gulp.task('bower', function() {
-  var jsFilter = gulpFilter('bower_components/**/*.js')
-  var cssFilter = gulpFilter('bower_components/**/*.css')
-  return gulp.src(mainBowerFiles({
-    paths: {
-        bowerDirectory: 'app/bower_components',
-        bowerrc: 'app/.bowerrc',
-        bowerJson: 'app/bower.json'
-    }
-}))
+    var jsFilter = gulpFilter('bower_components/**/*.js')
+    var cssFilter = gulpFilter('bower_components/**/*.css')
+    return gulp.src(mainBowerFiles({
+        paths: {
+            bowerDirectory: 'app/bower_components',
+            bowerrc: 'app/.bowerrc',
+            bowerJson: 'app/bower.json'
+        }
+    }))
         // .pipe(concat('lib.js'))
         // .pipe(gulp.dest(dist.vendor));
 
 
-.pipe(rename({ suffix: '.ven' }))
-    // .pipe(concat('vendor.js'))
-    // .pipe(gulp.dest(dist.vendor))
-    // // .pipe(jsFilter.restore())
-    // .pipe(cssFilter)
-    // .pipe(concat('vendor.css'))
-    // .pipe(gulp.dest(dist.css))
-    // // .pipe(cssFilter.restore())
-    // .pipe(rename(function(path) {
-    //   if (~path.dirname.indexOf('fonts')) {
-    //     path.dirname = '/fonts'
-    //   }
-    // }))
-    .pipe(gulp.dest(dist.vendor));
+        .pipe(rename({ suffix: '.ven' }))
+        // .pipe(concat('vendor.js'))
+        // .pipe(gulp.dest(dist.vendor))
+        // // .pipe(jsFilter.restore())
+        // .pipe(cssFilter)
+        // .pipe(concat('vendor.css'))
+        // .pipe(gulp.dest(dist.css))
+        // // .pipe(cssFilter.restore())
+        // .pipe(rename(function(path) {
+        //   if (~path.dirname.indexOf('fonts')) {
+        //     path.dirname = '/fonts'
+        //   }
+        // }))
+        .pipe(gulp.dest(dist.vendor));
 });
 
 
 //scripts
-gulp.task('scripts', function () {
-    gulp.src(['app/scripts/**/*.js','!app/scripts/**/*.min.js', '!app/scripts/**/*.es5.js', '!app/scripts/**/*.ven.js'])
+gulp.task('scripts', ['bower'], function() {
+    gulp.src(['app/scripts/**/*.js', '!app/scripts/**/*.min.js', '!app/scripts/**/*.es5.js', '!app/scripts/**/*.ven.js'])
         .pipe(plumber())
         .pipe(traceur())
         .pipe(rename({ suffix: '.es5' }))
@@ -74,7 +74,7 @@ gulp.task('scripts', function () {
 });
 
 
-gulp.task('styles', function () {
+gulp.task('styles', function() {
     gulp.src(src.sass)
         .pipe(plumber())
         .pipe(prefix('last 2 versions'))
@@ -83,43 +83,43 @@ gulp.task('styles', function () {
         .pipe(reload({ stream: true }));
 });
 
-gulp.task('html', function () {
+gulp.task('html', function() {
     gulp.src('app/**/*.html');
 });
 
 
 
-gulp.task('build:cleanfolder', function () {
+gulp.task('build:cleanfolder', function() {
     del([
         'build/**'
     ]);
 });
 
-gulp.task('build:copy', ['build:cleanfolder'], function () {
+gulp.task('build:copy', ['build:cleanfolder'], function() {
     return gulp.src('app/**/*')
         .pipe(gulp.dest('build/'))
 });
 
-gulp.task('build:remove', ['build:copy'], function (cb) {
+gulp.task('build:remove', ['build:copy'], function(cb) {
     del([
         'build/styles/sass'
-       // 'build/scripts/!(*.min.js)'
+        // 'build/scripts/!(*.min.js)'
     ], cb);
 });
 
 //in cmd run gulp build to create the directory for deploy
 gulp.task('build', ['build:copy', 'build:remove']);
 
-gulp.task('browser-sync', function () {
+gulp.task('browser-sync', function() {
     browserSync({
         server: {
-            baseDir: './app'
+            baseDir: 'app'
         }
     })
 });
 
 //in cmd run gulp build:serve to test if files are working properly for deploy
-gulp.task('build:serve', function () {
+gulp.task('build:serve', function() {
     browserSync({
         server: {
             baseDir: './build'
@@ -129,7 +129,7 @@ gulp.task('build:serve', function () {
 
 
 //watch - run gulp in cmd to start watching and ctrl+c to stop
-gulp.task('watch', function () {  
+gulp.task('watch', function() {
     gulp.watch(src.bower, ['bower']);
     gulp.watch('app/scripts/**/*.js', ['scripts']);
     gulp.watch('app/styles/**/*.scss', ['styles']);

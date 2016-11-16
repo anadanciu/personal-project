@@ -1,0 +1,33 @@
+{
+    "menuItems": [
+        {
+            "text": "Acasa",
+            "id": "home"
+        },
+        {
+            "text": "Despre",
+            "id": "about"
+        },
+        {
+            "text": "Curriculum vitae",
+            "id": "cv"
+        }
+    ],
+    "social": [
+        {
+            "channel": "facebook",
+            "title": "facebook",
+            "href": "#"
+        },
+        {
+            "channel": "twitter",
+            "title": "twitter",
+            "href": "#"
+        },
+        {
+            "channel": "linkedin",
+            "title": "linkedin",
+            "href": "#"
+        }
+    ]
+}

@@ -1,5 +1,5 @@
 "use strict";
-(function(Directives, undefined) {
+define(function() {
   "use strict";
   var adapp = ADapp.Modules.ADapp;
-}(ADapp.Directives = ADapp.Directives || {}));
+});
