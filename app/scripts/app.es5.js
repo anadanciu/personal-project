@@ -34,12 +34,18 @@
   Array.prototype.move = function(from, to) {
     this.splice(to, 0, this.splice(from, 1)[0]);
   };
-  ADapp.Selectors = {basic: {
+  ADapp.Selectors = {
+    basic: {
       container: '.container',
       bodyPage: 'body',
       nameHiddenClass: "hidden",
       nameDisabledClass: "vrui-is-disabled",
       nameTransparentClass: "vrui-is-transparent",
       nameInsetBorderClass: 'has-inset-border'
-    }};
+    },
+    pages: {
+      stack: '.js-stack',
+      page: '.js-page'
+    }
+  };
 }(window.ADapp = window.ADapp || {}));

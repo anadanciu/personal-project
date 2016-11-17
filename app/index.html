@@ -18,13 +18,17 @@
     <link href="styles/css/main.css" rel="stylesheet" />
 </head>
 
-<body data-ng-app="myApp">
+<body data-ng-app="myApp" ng-controller="MenusCtrl" data-ng-init="init()">
     <!-- navigation -->
-    <nav class="pages-nav" ng-controller="MenusCtrl" data-ng-init="init()">
-        <div class="pages-nav__item" data-ng-repeat="item in menu">
-            <a class="link link--page" href="#page-{{item.id}}">{{item.text}}</a></div>
+    <nav class="pages-nav">
 
-        <div class="pages-nav__item pages-nav__item--small"><a class="link link--page link--faded" href="#page-contact">Contact</a></div>
+        <div class="pages-nav__item" ng-repeat="item in menu">
+            <a class="link link--page" href="#page-{{item.id}}" ng-click="methods.openPage('#page-' + item.id)">{{item.text}}</a>
+        </div>
+
+        <!--<div class="pages-nav__item pages-nav__item--small">
+            <a class="link link--page link--faded" href="#page-contact" ng-click="methods.openPage('#page-contact')">Contact</a>
+        </div>-->
 
         <div class="pages-nav__item pages-nav__item--social">
             <a ng-repeat="social_icon in social" class="link link--social link--faded" ng-href="{{social_icon.href}}" title="{{social_icon.title}}">
@@ -34,13 +38,13 @@
     </nav>
     <!-- /navigation-->
     <!-- pages stack -->
-    <div class="pages-stack">
+    <div class="pages-stack js-stack">
         <!-- page -->
-        <div class="page" id="page-home">
+        <div class="page js-page" id="page-home" data-index="0">
             <!-- Blueprint header -->
             <header class="bp-header cf">
                 <span class="bp-header__present">Blueprint <span class="bp-tooltip bp-icon bp-icon--about" data-content="The Blueprints are a collection of basic and minimal website concepts, components, plugins and layouts with minimal style for easy adaption and usage, or simply for inspiration."></span></span>
-                <h1 class="bp-header__title">Page Stack Navigation</h1>
+                <h1 class="bp-header__title">Page Home</h1>
                 <p class="bp-header__desc">Based on Ilya Kostin's Dribbble shot <a href="https://dribbble.com/shots/2286042-Stacked-navigation">Stacked navigation</a></p>
                 <nav class="bp-nav">
                     <a class="bp-nav__item bp-icon bp-icon--prev" href="http://tympanus.net/Blueprints/ZoomSlider/" data-info="previous Blueprint"><span>Previous Blueprint</span></a>
@@ -52,9 +56,9 @@
             <img class="poster" src="images/1.jpg" alt="img01" />
         </div>
         <!-- /page -->
-        <div class="page" id="page-about">
+        <div class="page js-page" id="page-about" data-index="1">
             <header class="bp-header cf">
-                <h1 class="bp-header__title">Documentation</h1>
+                <h1 class="bp-header__title">Page about</h1>
                 <p class="bp-header__desc">Based on Ilya Kostin's Dribbble shot <a href="https://dribbble.com/shots/2286042-Stacked-navigation">Stacked navigation</a></p>
                 <p class="info">
                     "We cannot have peace among men whose hearts find delight in killing any living creature." &mdash; Rachel Carson
@@ -62,9 +66,9 @@
             </header>
             <img class="poster" src="images/6.jpg" alt="img06" />
         </div>
-        <div class="page" id="page-cv">
+        <div class="page js-page" id="page-cv" data-index="2">
             <header class="bp-header cf">
-                <h1 class="bp-header__title">Manuals</h1>
+                <h1 class="bp-header__title">Page CV</h1>
                 <p class="bp-header__desc">Based on Ilya Kostin's Dribbble shot <a href="https://dribbble.com/shots/2286042-Stacked-navigation">Stacked navigation</a></p>
                 <p class="info">
                     "When you adopt a vegan diet we make a connection, you don't go back, it is not a diet, it is a lifestyle." &mdash; Freelee
@@ -73,7 +77,7 @@
             </header>
             <img class="poster" src="images/2.jpg" alt="img02" />
         </div>
-        <div class="page" id="page-contact">
+        <div class="page js-page" id="page-contact" data-index="3">
             <header class="bp-header cf">
                 <h1 class="bp-header__title">Contact</h1>
                 <p class="bp-header__desc">Based on Ilya Kostin's Dribbble shot <a href="https://dribbble.com/shots/2286042-Stacked-navigation">Stacked navigation</a></p>
@@ -86,7 +90,7 @@
         </div>
     </div>
     <!-- /pages-stack -->
-    <button class="menu-button"><span>Menu</span></button>
+    <button class="menu-button js-menu-button" ng-click="methods.toggleMenu($event)"><span>Menu</span></button>
 
     <!--Scripts-->
     <!--<script data-main="scripts/main.es5.js" src="scripts/vendors/require.ven.js"></script>-->

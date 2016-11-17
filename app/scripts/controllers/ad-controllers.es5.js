@@ -2,7 +2,8 @@
 (function(Controllers, undefined) {
   "use strict";
   var adapp = ADapp.Modules.ADapp;
-  adapp.controller("MenusCtrl", ["$scope", "$log", "LanguageService", "Scopes", function MenusCtrl($scope, $log, LanguageService, Scopes) {
+  var pselector = ADapp.Selectors.pages;
+  adapp.controller("MenusCtrl", ["$scope", "$log", "$timeout", "LanguageService", "Scopes", function MenusCtrl($scope, $log, $timeout, LanguageService, Scopes) {
     $log.info('merge');
     $scope.getLanguageData = function(lang, callback) {
       var language = lang == 'en' ? LanguageService.getEnglish() : LanguageService.getRomanian();
@@ -21,162 +22,172 @@
     $scope.init = function() {
       $scope.getLanguageData('ro', function(data) {
         startApp(data);
-        buildStack();
-        initEvents();
       });
     };
-    var support = {transitions: Modernizr.csstransitions},
-        transEndEventNames = {
-          'WebkitTransition': 'webkitTransitionEnd',
-          'MozTransition': 'transitionend',
-          'OTransition': 'oTransitionEnd',
-          'msTransition': 'MSTransitionEnd',
-          'transition': 'transitionend'
+    var startApp = function(data) {
+      $scope.menu = data.menuItems;
+      $scope.social = data.social;
+      var transEndEventNames = {
+        'WebkitTransition': 'webkitTransitionEnd',
+        'MozTransition': 'transitionend',
+        'OTransition': 'oTransitionEnd',
+        'msTransition': 'MSTransitionEnd',
+        'transition': 'transitionend'
+      };
+      $scope.variables = {
+        support: {transitions: Modernizr.csstransitions},
+        transEndEventName: transEndEventNames[Modernizr.prefixed('transition')],
+        isMenuOpen: false,
+        current: 0
+      };
+      $timeout(function() {});
+      $scope.methods = {
+        buildStack: function() {
+          var scope = this;
+          var pages = angular.element(pselector.page);
+          var pagesTotal = pages.length;
+          var stackPagesIdxs = scope.getStackPagesIdxs(pagesTotal);
+          for (var i = 0; i < pagesTotal; ++i) {
+            var page = pages[i],
+                posIdx = stackPagesIdxs.indexOf(i);
+            if ($scope.variables.current !== i) {
+              classie.add(page, 'page--inactive');
+              if (posIdx !== -1) {
+                page.style.WebkitTransform = 'translate3d(0,100%,0)';
+                page.style.transform = 'translate3d(0,100%,0)';
+              } else {
+                page.style.WebkitTransform = 'translate3d(0,75%,-300px)';
+                page.style.transform = 'translate3d(0,75%,-300px)';
+              }
+            } else {
+              classie.remove(page, 'page--inactive');
+              page.style.WebkitTransform = 'translate3d(0,0,0)';
+              page.style.transform = 'translate3d(0,0,0)';
+            }
+            page.style.zIndex = i < $scope.variables.current ? parseInt($scope.variables.current - i) : parseInt(pagesTotal + $scope.variables.current - i);
+            if (posIdx !== -1) {
+              page.style.opacity = 1;
+            } else {
+              page.style.opacity = 0;
+            }
+          }
         },
-        transEndEventName = transEndEventNames[Modernizr.prefixed('transition')],
-        onEndTransition = function(el, callback) {
+        initEvents: function() {
+          pages.forEach(function(page) {
+            var pageid = page.getAttribute('id');
+            page.addEventListener('click', function(ev) {
+              if (isMenuOpen) {
+                ev.preventDefault();
+                openPage(pageid);
+              }
+            });
+          });
+          document.addEventListener('keydown', function(ev) {
+            if (!isMenuOpen)
+              return;
+            var keyCode = ev.keyCode || ev.which;
+            if (keyCode === 27) {
+              closeMenu();
+            }
+          });
+        },
+        toggleMenu: function(ev) {
+          var scope = this;
+          var menuCtrl = angular.element(ev.currentTarget);
+          if ($scope.variables.isMenuOpen) {
+            scope.closeMenu(menuCtrl);
+          } else {
+            scope.openMenu(menuCtrl);
+            $scope.variables.isMenuOpen = true;
+          }
+        },
+        openMenu: function(menuCtrl) {
+          var scope = this;
+          var pages = angular.element(pselector.page);
+          var pagesTotal = pages.length;
+          var stack = angular.element('.pages-stack');
+          var nav = angular.element('.pages-nav');
+          menuCtrl.addClass('menu-button--open');
+          stack.addClass('pages-stack--open');
+          nav.addClass('pages-nav--open');
+          var stackPagesIdxs = scope.getStackPagesIdxs(pagesTotal);
+          for (var i = 0,
+              len = stackPagesIdxs.length; i < len; ++i) {
+            var page = pages[stackPagesIdxs[i]];
+            page.style.WebkitTransform = 'translate3d(0, 75%, ' + parseInt(-1 * 200 - 50 * i) + 'px)';
+            page.style.transform = 'translate3d(0, 75%, ' + parseInt(-1 * 200 - 50 * i) + 'px)';
+          }
+        },
+        closeMenu: function(id) {
+          var scope = this;
+          scope.openPage();
+        },
+        openPage: function(id) {
+          var scope = this;
+          var menuCtrl = angular.element('.js-menu-button');
+          var stack = angular.element('.pages-stack');
+          var nav = angular.element('.pages-nav');
+          var pages = angular.element(pselector.page);
+          var pagesTotal = pages.length;
+          var futurePage = id ? angular.element(id) : angular.element(pages[$scope.variables.current]);
+          var futureCurrent = +futurePage.attr('data-index');
+          var stackPagesIdxs = scope.getStackPagesIdxs(pagesTotal, futureCurrent);
+          futurePage.css({
+            transform: 'translate3d(0, 50%, 0)',
+            opacity: 1
+          });
+          for (var i = 0,
+              len = stackPagesIdxs.length; i < len; ++i) {
+            var page = pages[stackPagesIdxs[i]];
+            page.style.WebkitTransform = 'translate3d(0,50%,0)';
+            page.style.transform = 'translate3d(0,50%,0)';
+          }
+          if (id) {
+            $scope.variables.current = futureCurrent;
+          }
+          menuCtrl.removeClass('menu-button--open');
+          nav.removeClass('pages-nav--open');
+          stack.removeClass('pages-stack--open');
+          scope.buildStack();
+          $scope.variables.isMenuOpen = false;
+        },
+        getStackPagesIdxs: function(pagesTotal, excludePageIdx) {
+          var scope = this;
+          var nextStackPageIdx = $scope.variables.current + 1 < pagesTotal ? $scope.variables.current + 1 : 0;
+          var nextStackPageIdx_2 = $scope.variables.current + 2 < pagesTotal ? $scope.variables.current + 2 : 1;
+          var idxs = [];
+          var excludeIdx = excludePageIdx || -1;
+          if (excludePageIdx != $scope.variables.current) {
+            idxs.push($scope.variables.current);
+          }
+          if (excludePageIdx != nextStackPageIdx) {
+            idxs.push(nextStackPageIdx);
+          }
+          if (excludePageIdx != nextStackPageIdx_2) {
+            idxs.push(nextStackPageIdx_2);
+          }
+          return idxs;
+        },
+        onEndTransition: function(el, callback) {
+          var scope = this;
           var onEndCallbackFn = function(ev) {
-            if (support.transitions) {
+            if ($scope.variables.support.transitions) {
               if (ev.target != this)
                 return;
-              this.removeEventListener(transEndEventName, onEndCallbackFn);
+              this.removeEventListener($scope.variables.transEndEventName, onEndCallbackFn);
             }
             if (callback && typeof callback === 'function') {
               callback.call(this);
             }
           };
-          if (support.transitions) {
-            el.addEventListener(transEndEventName, onEndCallbackFn);
+          if ($scope.variables.support.transitions) {
+            el[0].addEventListener($scope.variables.transEndEventName, onEndCallbackFn);
           } else {
             onEndCallbackFn();
           }
-        };
-    var stack = document.querySelector('.pages-stack');
-    var pages = [].slice.call(stack.children);
-    var pagesTotal = pages.length;
-    var current = 0;
-    var menuCtrl = document.querySelector('button.menu-button');
-    var nav = document.querySelector('.pages-nav');
-    var navItems = [].slice.call(nav.querySelectorAll('.link--page'));
-    var isMenuOpen = false;
-    var startApp = function(data) {
-      $scope.menu = data.menuItems;
-      $scope.social = data.social;
+        }
+      };
+      $scope.methods.buildStack();
     };
-    function buildStack() {
-      var stackPagesIdxs = getStackPagesIdxs();
-      for (var i = 0; i < pagesTotal; ++i) {
-        var page = pages[i],
-            posIdx = stackPagesIdxs.indexOf(i);
-        if (current !== i) {
-          classie.add(page, 'page--inactive');
-          if (posIdx !== -1) {
-            page.style.WebkitTransform = 'translate3d(0,100%,0)';
-            page.style.transform = 'translate3d(0,100%,0)';
-          } else {
-            page.style.WebkitTransform = 'translate3d(0,75%,-300px)';
-            page.style.transform = 'translate3d(0,75%,-300px)';
-          }
-        } else {
-          classie.remove(page, 'page--inactive');
-        }
-        page.style.zIndex = i < current ? parseInt(current - i) : parseInt(pagesTotal + current - i);
-        if (posIdx !== -1) {
-          page.style.opacity = parseFloat(1 - 0.1 * posIdx);
-        } else {
-          page.style.opacity = 0;
-        }
-      }
-    }
-    function initEvents() {
-      menuCtrl.addEventListener('click', toggleMenu);
-      navItems.forEach(function(item) {
-        var pageid = item.getAttribute('href').slice(1);
-        item.addEventListener('click', function(ev) {
-          ev.preventDefault();
-          openPage(pageid);
-        });
-      });
-      pages.forEach(function(page) {
-        var pageid = page.getAttribute('id');
-        page.addEventListener('click', function(ev) {
-          if (isMenuOpen) {
-            ev.preventDefault();
-            openPage(pageid);
-          }
-        });
-      });
-      document.addEventListener('keydown', function(ev) {
-        if (!isMenuOpen)
-          return;
-        var keyCode = ev.keyCode || ev.which;
-        if (keyCode === 27) {
-          closeMenu();
-        }
-      });
-    }
-    function toggleMenu() {
-      if (isMenuOpen) {
-        closeMenu();
-      } else {
-        openMenu();
-        isMenuOpen = true;
-      }
-    }
-    function openMenu() {
-      classie.add(menuCtrl, 'menu-button--open');
-      classie.add(stack, 'pages-stack--open');
-      classie.add(nav, 'pages-nav--open');
-      var stackPagesIdxs = getStackPagesIdxs();
-      for (var i = 0,
-          len = stackPagesIdxs.length; i < len; ++i) {
-        var page = pages[stackPagesIdxs[i]];
-        page.style.WebkitTransform = 'translate3d(0, 75%, ' + parseInt(-1 * 200 - 50 * i) + 'px)';
-        page.style.transform = 'translate3d(0, 75%, ' + parseInt(-1 * 200 - 50 * i) + 'px)';
-      }
-    }
-    function closeMenu() {
-      openPage();
-    }
-    function openPage(id) {
-      var futurePage = id ? document.getElementById(id) : pages[current],
-          futureCurrent = pages.indexOf(futurePage),
-          stackPagesIdxs = getStackPagesIdxs(futureCurrent);
-      futurePage.style.WebkitTransform = 'translate3d(0, 0, 0)';
-      futurePage.style.transform = 'translate3d(0, 0, 0)';
-      futurePage.style.opacity = 1;
-      for (var i = 0,
-          len = stackPagesIdxs.length; i < len; ++i) {
-        var page = pages[stackPagesIdxs[i]];
-        page.style.WebkitTransform = 'translate3d(0,100%,0)';
-        page.style.transform = 'translate3d(0,100%,0)';
-      }
-      if (id) {
-        current = futureCurrent;
-      }
-      classie.remove(menuCtrl, 'menu-button--open');
-      classie.remove(nav, 'pages-nav--open');
-      onEndTransition(futurePage, function() {
-        classie.remove(stack, 'pages-stack--open');
-        buildStack();
-        isMenuOpen = false;
-      });
-    }
-    function getStackPagesIdxs(excludePageIdx) {
-      var nextStackPageIdx = current + 1 < pagesTotal ? current + 1 : 0,
-          nextStackPageIdx_2 = current + 2 < pagesTotal ? current + 2 : 1,
-          idxs = [],
-          excludeIdx = excludePageIdx || -1;
-      if (excludePageIdx != current) {
-        idxs.push(current);
-      }
-      if (excludePageIdx != nextStackPageIdx) {
-        idxs.push(nextStackPageIdx);
-      }
-      if (excludePageIdx != nextStackPageIdx_2) {
-        idxs.push(nextStackPageIdx_2);
-      }
-      return idxs;
-    }
   }]);
 }(ADapp.Controllers = ADapp.Controllers || {}));

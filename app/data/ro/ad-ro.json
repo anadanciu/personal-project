@@ -11,6 +11,10 @@
         {
             "text": "Curriculum vitae",
             "id": "cv"
+        },
+        {
+            "text": "Contact",
+            "id": "contact"
         }
     ],
     "social": [

@@ -47,6 +47,10 @@
             nameDisabledClass: "vrui-is-disabled",
             nameTransparentClass: "vrui-is-transparent",
             nameInsetBorderClass: 'has-inset-border'
+        },
+        pages: {
+            stack: '.js-stack',
+            page: '.js-page'
         }
     };
     // toastr.options = {
