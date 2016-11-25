@@ -4,8 +4,8 @@
     let adapp = ADapp.Modules.ADapp;
     let pselector = ADapp.Selectors.pages;
 
-    adapp.controller("MenusCtrl", ["$scope", "$log", "$timeout", "LanguageService", "Scopes",
-        function MenusCtrl($scope, $log, $timeout, LanguageService, Scopes) {
+    adapp.controller("MenusCtrl", ["$scope", "$log", "$timeout", "LanguageService", "Scopes", "LoaderService",
+        function MenusCtrl($scope, $log, $timeout, LanguageService, Scopes, LoaderService) {
             $log.info('merge');
 
             $scope.getLanguageData = function(lang, callback) {
@@ -35,6 +35,8 @@
 
                 $scope.menu = data.menuItems;
                 $scope.social = data.social;
+                $scope.backgroundImages = data.backgroundImage;
+                $scope.pages = data.pages;
 
                 let transEndEventNames = {
                     'WebkitTransition': 'webkitTransitionEnd',
@@ -55,9 +57,24 @@
                 }
 
                 $timeout(() => {
+                    $scope.methods.buildStack();
+                    LoaderService.killAjaxLoader();
+                    //$scope.methods.initEvents();
                 });
 
                 $scope.methods = {
+                    getOtherLanguage(lang) {
+
+                        $scope.getLanguageData(lang, function(data) {
+                            let stack = angular.element('.pages-stack');
+                            let menuCtrl = angular.element('.js-menu-button');
+                            let nav = angular.element('.pages-nav');
+                            menuCtrl.removeClass('menu-button--open');
+                            nav.removeClass('pages-nav--open');
+                            stack.removeClass('pages-stack--open');
+                            startApp(data);
+                        });
+                    },
                     buildStack() {
                         let scope = this;
                         let pages = angular.element(pselector.page);
@@ -77,15 +94,11 @@
                                     // visible pages in the stack
                                     page.style.WebkitTransform = 'translate3d(0,100%,0)';
                                     page.style.transform = 'translate3d(0,100%,0)';
-                                    // page.style.WebkitTransform = 'translate3d(0,0,0)';
-                                    // page.style.transform = 'translate3d(0,0,0)';
                                 }
                                 else {
                                     // invisible pages in the stack
                                     page.style.WebkitTransform = 'translate3d(0,75%,-300px)';
                                     page.style.transform = 'translate3d(0,75%,-300px)';
-                                    // page.style.WebkitTransform = 'translate3d(0,0,0)';
-                                    // page.style.transform = 'translate3d(0,0,0)';
                                 }
                             }
                             else {
@@ -146,6 +159,7 @@
 
                         if ($scope.variables.isMenuOpen) {
                             scope.closeMenu(menuCtrl);
+                            $scope.variables.isMenuOpen = false;
                         }
                         else {
                             scope.openMenu(menuCtrl);
@@ -199,17 +213,18 @@
                         // set transforms for the new current page
                         // futurePage[0].style.WebkitTransform = 'translate3d(0, 0, 0)';
                         futurePage.css({
-                            transform: 'translate3d(0, 50%, 0)',
+                            transform: 'translate3d(0, 0, 0)',
+                            // transform: 'translate3d(0, 50%, 0)',
                             opacity: 1
                         });
 
                         // set transforms for the other items in the stack
                         for (var i = 0, len = stackPagesIdxs.length; i < len; ++i) {
                             var page = pages[stackPagesIdxs[i]];
-                            page.style.WebkitTransform = 'translate3d(0,50%,0)';
-                            page.style.transform = 'translate3d(0,50%,0)';
-                            // page.style.WebkitTransform = 'translate3d(0,0,0)';
-                            // page.style.transform = 'translate3d(0,0,0)';
+                            // page.style.WebkitTransform = 'translate3d(0,50%,0)';
+                            // page.style.transform = 'translate3d(0,50%,0)';
+                            page.style.WebkitTransform = 'translate3d(0,0,0)';
+                            page.style.transform = 'translate3d(0,0,0)';
                         }
 
                         // set current
@@ -272,8 +287,7 @@
 
                 };//end of methods
 
-                $scope.methods.buildStack();
-                //$scope.methods.initEvents();
+
 
             }//end of startApp
 

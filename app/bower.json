@@ -19,7 +19,8 @@
     "angular": "angularjs#^1.5.8",
     "angular-material": "^1.1.1",
     "bootstrap": "^3.3.7",
-    "requirejs": "^2.3.2"
+    "requirejs": "^2.3.2",
+    "loaders.css": "^0.1.2"
   },
   "devDependencies": {
     "jquery": "^3.1.1",

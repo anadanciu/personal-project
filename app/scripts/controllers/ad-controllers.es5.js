@@ -3,7 +3,7 @@
   "use strict";
   var adapp = ADapp.Modules.ADapp;
   var pselector = ADapp.Selectors.pages;
-  adapp.controller("MenusCtrl", ["$scope", "$log", "$timeout", "LanguageService", "Scopes", function MenusCtrl($scope, $log, $timeout, LanguageService, Scopes) {
+  adapp.controller("MenusCtrl", ["$scope", "$log", "$timeout", "LanguageService", "Scopes", "LoaderService", function MenusCtrl($scope, $log, $timeout, LanguageService, Scopes, LoaderService) {
     $log.info('merge');
     $scope.getLanguageData = function(lang, callback) {
       var language = lang == 'en' ? LanguageService.getEnglish() : LanguageService.getRomanian();
@@ -27,6 +27,8 @@
     var startApp = function(data) {
       $scope.menu = data.menuItems;
       $scope.social = data.social;
+      $scope.backgroundImages = data.backgroundImage;
+      $scope.pages = data.pages;
       var transEndEventNames = {
         'WebkitTransition': 'webkitTransitionEnd',
         'MozTransition': 'transitionend',
@@ -40,8 +42,22 @@
         isMenuOpen: false,
         current: 0
       };
-      $timeout(function() {});
+      $timeout(function() {
+        $scope.methods.buildStack();
+        LoaderService.killAjaxLoader();
+      });
       $scope.methods = {
+        getOtherLanguage: function(lang) {
+          $scope.getLanguageData(lang, function(data) {
+            var stack = angular.element('.pages-stack');
+            var menuCtrl = angular.element('.js-menu-button');
+            var nav = angular.element('.pages-nav');
+            menuCtrl.removeClass('menu-button--open');
+            nav.removeClass('pages-nav--open');
+            stack.removeClass('pages-stack--open');
+            startApp(data);
+          });
+        },
         buildStack: function() {
           var scope = this;
           var pages = angular.element(pselector.page);
@@ -96,6 +112,7 @@
           var menuCtrl = angular.element(ev.currentTarget);
           if ($scope.variables.isMenuOpen) {
             scope.closeMenu(menuCtrl);
+            $scope.variables.isMenuOpen = false;
           } else {
             scope.openMenu(menuCtrl);
             $scope.variables.isMenuOpen = true;
@@ -133,14 +150,14 @@
           var futureCurrent = +futurePage.attr('data-index');
           var stackPagesIdxs = scope.getStackPagesIdxs(pagesTotal, futureCurrent);
           futurePage.css({
-            transform: 'translate3d(0, 50%, 0)',
+            transform: 'translate3d(0, 0, 0)',
             opacity: 1
           });
           for (var i = 0,
               len = stackPagesIdxs.length; i < len; ++i) {
             var page = pages[stackPagesIdxs[i]];
-            page.style.WebkitTransform = 'translate3d(0,50%,0)';
-            page.style.transform = 'translate3d(0,50%,0)';
+            page.style.WebkitTransform = 'translate3d(0,0,0)';
+            page.style.transform = 'translate3d(0,0,0)';
           }
           if (id) {
             $scope.variables.current = futureCurrent;
@@ -187,7 +204,6 @@
           }
         }
       };
-      $scope.methods.buildStack();
     };
   }]);
 }(ADapp.Controllers = ADapp.Controllers || {}));

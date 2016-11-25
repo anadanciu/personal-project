@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*The body font-size is set to 14px
 The font-size of the h3 tag is 40px
 The width of the containing div is 230px*/
@@ -5,6 +6,7 @@ The width of the containing div is 230px*/
    v2.0 | 20110126
    License: none (public domain)
 */
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700|Muli|Open+Sans:800|Share+Tech&amp;subset=latin-ext);
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -42,16 +44,56 @@ table {
 The font-size of the h3 tag is 40px
 The width of the containing div is 230px*/
 /**@include transition(color .3s ease);*/
-/*@import '_custom_variables.scss';*/
-/* General Blueprint Style */
-@font-face {
-  font-family: 'bpicons';
-  font-weight: normal;
-  font-style: normal;
-  src: url("../fonts/bpicons/bpicons.eot");
-  src: url("../fonts/bpicons/bpicons.eot?#iefix") format("embedded-opentype"), url("../fonts/bpicons/bpicons.woff") format("woff"), url("../fonts/bpicons/bpicons.ttf") format("truetype"), url("../fonts/bpicons/bpicons.svg#bpicons") format("svg"); }
+/*The body font-size is set to 14px
+The font-size of the h3 tag is 40px
+The width of the containing div is 230px*/
+/**@include transition(color .3s ease);*/
+/*===========
+FORMAT COPIED FROM sass_helpers/_variables.scss
+============*/
+/*
+ * VARIABLES FOR MEDIA QUERIES
+ *
+ */
+/*
+ * PLACEHOLDERS
+ *
+ */
+/*****
+GENERAL COLOURED FORM
+****/
+/*****
+GENERAL WHITE FORM
+****/
+.ad-form label {
+  color: rgba(255, 255, 255, 0.8); }
 
-/* Made with http://icomoon.io/ */
+.ad-form md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused .md-input, .ad-form md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+  border-color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.8); }
+
+.ad-form md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused md-icon, .ad-form md-input-container:not(.md-input-invalid).md-input-focused md-icon, .ad-form md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused md-icon, .ad-form md-input-container:not(.md-input-invalid).md-input-focused md-icon .fa, .ad-form md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused label, .ad-form md-input-container:not(.md-input-invalid).md-input-focused label, .ad-form md-input-container.md-default-theme .md-input, .ad-form md-input-container .md-input, .ad-form md-input-container.md-default-theme:not(.md-input-invalid).md-input-has-value label, .ad-form md-input-container:not(.md-input-invalid).md-input-has-value label {
+  color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 255, 255, 0.8); }
+
+.ad-form md-input-container.md-default-theme.md-input-invalid.md-input-focused label, .ad-form md-input-container.md-input-invalid.md-input-focused label, .ad-form md-input-container.md-default-theme.md-input-invalid.md-input-focused label, .ad-form md-input-container.md-input-invalid.md-input-has-value label, .ad-form md-input-container.md-default-theme.md-input-invalid.md-input-focused label, .ad-form md-input-container.md-input-invalid.md-input-has-value md-icon, .ad-form md-input-container.md-default-theme.md-input-invalid.md-input-focused md-icon, .ad-form md-input-container.md-input-invalid.md-input-focused md-icon, .ad-form md-input-container.md-default-theme.md-input-invalid.md-input-focused .md-input, .ad-form md-input-container.md-input-invalid.md-input-focused .md-input, .ad-form md-input-container.md-default-theme.md-input-invalid .md-input, .ad-form md-input-container.md-input-invalid .md-input, .ad-form md-input-container.md-input-invalid.md-input-focused md-icon .fa {
+  border-color: #ff9966;
+  color: #ff9966; }
+
+.ad-form md-input-container:not(.md-input-has-value) input:not(:focus) {
+  border-color: rgba(255, 255, 255, 0.8); }
+
+.ad-form md-input-container:not(md-input-focused).md-input-invalid, .ad-form md-input-container:not(md-input-focused).md-input-invalid label {
+  color: rgba(255, 255, 255, 0.8); }
+
+.ad-form md-input-container > md-icon {
+  color: rgba(255, 255, 255, 0.8); }
+  .ad-form md-input-container > md-icon svg {
+    fill: #fff; }
+
+/*****
+GENERAL FOR RED FORM
+****/
 /* Resets */
 *,
 *:after,
@@ -68,29 +110,40 @@ The width of the containing div is 230px*/
   clear: both; }
 
 /* Main styles */
-body {
-  font-family: 'Avenir Next', Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
-  margin: 0;
-  color: #cecece;
-  background: #1d1e21;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
 a {
   text-decoration: none;
-  color: #5c5edc;
+  color: #fff;
   outline: none; }
 
 a:hover {
   color: #fff;
   text-decoration: none; }
 
-/* Blueprint header */
+button,
+select,
+html,
+textarea,
+input {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 21px !important; }
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  background: #800101;
+  font-weight: 400;
+  font-size: 16px !important;
+  color: #fff;
+  overflow-y: scroll;
+  overflow-x: hidden; }
+
+.ie7 body {
+  overflow: hidden; }
+
 .bp-header {
   padding: 6em 10vw 2em; }
 
 .bp-header__title {
-  font-size: 2.125em;
+  font-size: 30px !important;
   font-weight: 700;
   line-height: 1.3;
   margin: 0;
@@ -112,100 +165,7 @@ a:hover {
   padding: 0 0 0.6em 0.1em;
   letter-spacing: 0.5em;
   text-transform: uppercase;
-  color: #5c5edc; }
-
-.bp-tooltip:after {
-  font-size: 50%;
-  font-size: 75%;
-  position: relative;
-  top: -8px;
-  left: -12px;
-  width: 30px;
-  height: 30px; }
-
-.bp-tooltip:hover:before {
-  content: attr(data-content);
-  font-size: 110%;
-  font-weight: 700;
-  line-height: 1.2;
-  position: absolute;
-  left: auto;
-  margin-left: 4px;
-  padding: 0.8em 1em;
-  text-align: left;
-  text-indent: 0;
-  letter-spacing: 0;
-  text-transform: none;
-  color: #fff;
-  background: #5c5edc; }
-
-.bp-nav {
-  margin: 0 0 0 -0.75em; }
-
-.bp-nav__item {
-  position: relative;
-  display: inline-block;
-  width: 2.5em;
-  height: 2.5em;
-  margin: 0 0.1em;
-  text-align: left;
-  border-radius: 50%; }
-
-.bp-nav__item > span {
-  display: none; }
-
-.bp-nav__item:hover:before {
-  content: attr(data-info);
-  font-size: 0.85em;
-  font-weight: bold;
-  position: absolute;
-  top: 120%;
-  left: 0;
-  width: 600%;
-  text-align: left;
-  pointer-events: none;
-  color: #595a5f; }
-
-.bp-nav__item:hover {
-  background: #5c5edc; }
-
-.bp-icon:after {
-  font-family: 'bpicons';
-  font-weight: normal;
-  font-style: normal;
-  font-variant: normal;
-  text-align: center;
-  text-transform: none;
-  color: #5c5edc;
-  -webkit-font-smoothing: antialiased;
-  speak: none; }
-
-.bp-nav .bp-icon:after {
-  line-height: 2.4;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  text-indent: 0; }
-
-.bp-nav a:hover:after {
   color: #fff; }
-
-.bp-icon--next:after {
-  content: '\e000'; }
-
-.bp-icon--drop:after {
-  content: '\e001'; }
-
-.bp-icon--archive:after {
-  content: '\e002'; }
-
-.bp-icon--about:after {
-  content: '\e003'; }
-
-.bp-icon--prev:after {
-  content: '\e004'; }
 
 @media screen and (max-width: 40em) {
   .bp-header {
@@ -217,6 +177,38 @@ html.js,
 .js body {
   overflow: hidden;
   height: 100vh; }
+
+/*================----Ajax loading arrow-----======== */
+.ajax-load {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 9998;
+  background: white; }
+
+.ajax-load-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative; }
+
+.preloader {
+  width: 100px;
+  height: 100px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 9999;
+  position: absolute; }
+  .preloader .line-scale-pulse-out-rapid {
+    height: 100%;
+    text-align: center; }
+    .preloader .line-scale-pulse-out-rapid > div {
+      left: 0;
+      background-color: #800101; }
 
 /* Pages nav */
 .pages-nav {
@@ -230,7 +222,7 @@ html.js,
   align-items: center;
   padding: 20px;
   text-align: center;
-  background: #0e0f0f; }
+  background: #800101; }
 
 .js .pages-nav {
   position: absolute;
@@ -261,9 +253,15 @@ html.js,
 .pages-nav .pages-nav__item--social {
   width: 100%;
   opacity: 0;
+  filter: alpha(opacity=0);
   transition: transform 1.2s, opacity 1.2s;
   transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
   transform: translate3d(0, 20px, 0); }
+  .pages-nav .pages-nav__item--social .ad-initial-text {
+    text-transform: lowercase;
+    font-weight: bold;
+    font-family: "Open Sans", sans-serif;
+    outline: none; }
 
 .pages-nav--open .pages-nav__item--social {
   opacity: 1;
@@ -271,7 +269,7 @@ html.js,
   transform: translate3d(0, 0, 0); }
 
 .link {
-  font-size: 0.85em;
+  font-size: 16px !important;
   font-weight: bold;
   position: relative;
   letter-spacing: 1px;
@@ -283,7 +281,7 @@ html.js,
 
 .link--page {
   display: block;
-  color: #cecece; }
+  color: #E7E5E3; }
 
 .link--page:not(.link--faded)::before {
   content: '';
@@ -301,11 +299,13 @@ html.js,
   transform: scale3d(1, 1, 1); }
 
 .link--faded {
-  color: #4f4f64; }
+  color: #4d0101;
+  font-size: 21px !important; }
 
 .link--faded:hover,
 .link--faded:focus {
-  color: #5c5edc; }
+  color: #fff;
+  text-decoration: none !important; }
 
 .link--page.link--faded {
   font-size: 0.65em; }
@@ -336,8 +336,8 @@ html.js,
   width: 100%;
   height: 100vh;
   pointer-events: auto;
-  background: #2a2b30;
-  box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1); }
+  background: #4d0101;
+  box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.4); }
 
 .js .pages-stack--open .page {
   cursor: pointer;
@@ -348,20 +348,30 @@ html.js,
   position: absolute;
   z-index: 0;
   top: 0;
-  opacity: 0; }
+  opacity: 0;
+  filter: alpha(opacity=0); }
 
 /* page content */
 .info {
+  font-family: "Muli", sans-serif;
   font-size: 1.25em;
   max-width: 50%;
-  margin-top: 1.5em; }
+  margin-top: 1.5em;
+  letter-spacing: 0.5px;
+  line-height: 25px; }
 
 .poster {
   position: absolute;
-  bottom: 4vh;
+  bottom: calc(50% - 212px);
   left: 60%;
   max-width: 100%;
   max-height: 80%; }
+
+.ad-form {
+  max-width: 700px; }
+
+.ad-submit {
+  width: 70px; }
 
 /* Menu button */
 .menu-button {
@@ -383,7 +393,7 @@ html.js,
 .menu-button::before,
 .menu-button::after,
 .menu-button span {
-  background: #5f656f; }
+  background: #fff; }
 
 .menu-button::before,
 .menu-button::after {
@@ -464,3 +474,199 @@ html.js,
     font-size: 0.85em; }
   .poster {
     margin: 1em; } }
+
+.container {
+  position: relative;
+  text-align: center; }
+
+.clr {
+  clear: both; }
+
+.container > header {
+  padding: 30px 30px 10px 20px;
+  margin: 0px 20px 10px 20px;
+  position: relative;
+  display: block;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  text-align: left; }
+
+.container > header h1 {
+  text-transform: uppercase;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 25px;
+  position: relative;
+  color: #fff;
+  text-shadow: 1px 1px 1px black;
+  padding: 0px 0px 5px 0px; }
+
+.container > header h2 {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 35px;
+  position: relative;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  padding: 0px 0px 5px 0px; }
+
+.cb-slideshow,
+.cb-slideshow:after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 0; }
+
+.cb-slideshow:after {
+  content: '';
+  background: transparent url(../../../images/pattern.png) repeat top left; }
+
+.cb-slideshow li span {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: none;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  z-index: 0;
+  -webkit-backface-visibility: hidden;
+  animation: imageAnimation 72s linear infinite 0s; }
+
+.cb-slideshow li div {
+  z-index: 1000;
+  position: absolute;
+  bottom: 30px;
+  left: 0px;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  animation: titleAnimation 72s linear infinite 0s; }
+
+.cb-slideshow li div h3 {
+  font-family: "Share Tech", sans-serif;
+  text-transform: uppercase;
+  font-size: 120px !important;
+  padding: 0 30px;
+  line-height: 120px;
+  color: rgba(255, 255, 255, 0.8); }
+
+/*.cb-slideshow li:nth-child(1) span {
+    background-image: url(../../images/1.jpg)*
+}*/
+.cb-slideshow li:nth-child(2) span,
+.cb-slideshow li:nth-child(2) div {
+  /*background-image: url(../../images/2.jpg);*/
+  animation-delay: 6s; }
+
+.cb-slideshow li:nth-child(3) span,
+.cb-slideshow li:nth-child(3) div {
+  /*background-image: url(../../images/3.jpg);*/
+  animation-delay: 12s; }
+
+.cb-slideshow li:nth-child(4) span,
+.cb-slideshow li:nth-child(4) div {
+  /*background-image: url(../../images/4.jpg);*/
+  animation-delay: 18s; }
+
+.cb-slideshow li:nth-child(5) span,
+.cb-slideshow li:nth-child(5) div {
+  /*background-image: url(../../images/5.jpg);*/
+  animation-delay: 24s; }
+
+.cb-slideshow li:nth-child(6) span,
+.cb-slideshow li:nth-child(6) div {
+  /*background-image: url(../../images/6.jpg);*/
+  animation-delay: 30s; }
+
+.cb-slideshow li:nth-child(7) span,
+.cb-slideshow li:nth-child(7) div {
+  /*background-image: url(../../images/6.jpg);*/
+  animation-delay: 36s; }
+
+.cb-slideshow li:nth-child(8) span,
+.cb-slideshow li:nth-child(8) div {
+  /*background-image: url(../../images/6.jpg);*/
+  animation-delay: 42s; }
+
+.cb-slideshow li:nth-child(9) span,
+.cb-slideshow li:nth-child(9) div {
+  /*background-image: url(../../images/6.jpg);*/
+  animation-delay: 48s; }
+
+.cb-slideshow li:nth-child(10) span,
+.cb-slideshow li:nth-child(10) div {
+  /*background-image: url(../../images/6.jpg);*/
+  animation-delay: 54s; }
+
+.cb-slideshow li:nth-child(11) span,
+.cb-slideshow li:nth-child(11) div {
+  /*background-image: url(../../images/6.jpg);*/
+  animation-delay: 60s; }
+
+.cb-slideshow li:nth-child(12) span,
+.cb-slideshow li:nth-child(12) div {
+  /*background-image: url(../../images/6.jpg);*/
+  animation-delay: 66s; }
+
+.cb-slideshow li:nth-child(13) span,
+.cb-slideshow li:nth-child(13) div {
+  /*background-image: url(../../images/6.jpg);*/
+  animation-delay: 72s; }
+
+@keyframes imageAnimation {
+  0% {
+    opacity: 0;
+    animation-timing-function: ease-in; }
+  4% {
+    opacity: 1;
+    transform: scale(1.05);
+    animation-timing-function: ease-out; }
+  8% {
+    opacity: 1;
+    transform: scale(1.1); }
+  16% {
+    opacity: 0;
+    -webkit-transform: scale(1.1) translateY(-20%); }
+  25% {
+    opacity: 0;
+    -transform: scale(1.1) translateY(-100%); }
+  100% {
+    opacity: 0; } }
+
+@keyframes titleAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-300%); }
+  4% {
+    opacity: 1;
+    transform: translateY(0%); }
+  8% {
+    opacity: 1;
+    transform: translateY(0%); }
+  9% {
+    opacity: 0;
+    transform: translateY(100%); }
+  25% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+
+/*Now, why those values? We want each image to be visible for 6 seconds and we know that at the end of a cycle, we want the first image to show again. We have 6 images, so we will need 36 seconds for a whole cycle to finish. Now, we need to “time” the opacity values accordingly. Knowing that our second image will start animating at 6 seconds, we need to know at what percentile of the animation this will require the first image to fade out. Dividing 6 by 36 gives us 0.166… which would be 16% for our keyframe step. Now, because we don’t want our image to just fade all the time, we’ll define an inbetween step, which we’ll set at half of what we calculated, i.e. 8%. That’s the point that we want to show the image completely and we only want to start fading it out at 17%, making it disappear completely at 25%.*/
+/* Show at least something when animations not supported */
+.no-cssanimations .cb-slideshow li span {
+  opacity: 1;
+  filter: alpha(opacity=100); }
+
+@media screen and (max-width: 1140px) {
+  .cb-slideshow li div h3 {
+    font-size: 100px !important; } }
+
+@media screen and (max-width: 600px) {
+  .cb-slideshow li div h3 {
+    font-size: 50px !important; } }

@@ -4,12 +4,15 @@
 FORMAT COPIED FROM sass_helpers/_variables.scss
 ============*/
 
-@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700italic,700&subset=latin,latin-ext);
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700|Muli|Open+Sans:800|Share+Tech&amp;subset=latin-ext);
 //used for main text
-$font-primary: 'Ubuntu',
+$font-primary: 'Josefin Sans',
 sans-serif;
-//for inputs defined by angular-material
-$font-secondary: 'Roboto',
+$font-secondary: 'Share Tech',
+sans-serif;
+$font-tertiary:'Muli',
+sans-serif;
+$font-cuart:'Open Sans',
 sans-serif;
 //font-size-general
 $font-size: 16;
@@ -18,6 +21,13 @@ $font-size-special: 18;
 $font-size-secondary: 14;
 //font-size-icons
 $font-size-tertiary: 21;
+$font-size-bigtitle:120;
+$font-size-mediumtitle:100;
+$font-size-smalltitle:50;
+$font-size-xsmalltitle:30;
+//colors
+$burgundy:#800101;
+$burgundyblack: #4d0101;
 $orange: #FF9966;
 $orangeActive: #FFCC99;
 $marinBlue: #003366;
@@ -36,19 +46,20 @@ $ciel: #2BBCE0;
 $night: #34495E;
 $yellow: #cab304;
 //backgrounds  large components
-$color-primary: $orange;
-$color-secondary: $marinBlue;
+$color-primary: $burgundy;
+$color-secondary: $burgundyblack;
 $color-tertiary: $greyish;
 $color-tertiary-exception: $grey;
 $color-cuart: $white;
+$color-required:$orange;
 $color-opinion: $vernil;
 $color-webchannel: $ciel;
 $color-interview: $magenta;
 $color-kiosk: $purple;
 $color-experience: $yellow;
 //fonts color
-$color-font-primary: $black;
-$color-font-secondary: $grey;
+$color-font-primary: $white;
+$color-font-secondary: $black;
 $color-font-tertiary: $marinBlue;
 //backgrounds buttons on different states
 $color-primary-active: $orangeActive;
@@ -424,7 +435,7 @@ GENERAL WHITE FORM
 %md-container-input-white {
     $color-unfocused: $color-cuart;
     $color-focused: $color-cuart;
-    $color-required: $color-primary;
+    $color-required: $color-required;
     label {
         color: rgba-color($color-unfocused, 0.8);
     }
