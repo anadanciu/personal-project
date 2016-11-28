@@ -133,7 +133,7 @@
         {
             "id": "page-about",
             "title": "Despre mine",
-            "info": "We cannot have peace among men whose hearts find delight in killing any living creature. &mdash; Rachel Carson",
+            "info": "Bună, sunt Anamaria Danciu, dar apropiații imi zic Ana. Imi place să scriu cod pentru web, să dau viață paginilor, să învăț lucruri noi, urmând riguros un design bine pus la punct. Iubesc să fac asta și din fericire, un loc de muncă în acest domeniu poate fi încadrat la hobby-urile mele. Hmm...ce altceva imi mai place sa fac? Aș fi vrut să spun că fac lucruri inedite, însă îmi place să merg la cinema, să citesc cărți interesante și să ascult muzică. De preferat, când scriu cod. Cui nu-i plac aceste activități, nu-i așa? Vă invit să-mi aflați cursul progresului meu la secțiunea Curriculum Vitae :)",
             "image": "images/woman.png",
             "alt": "woman"
         },
@@ -147,7 +147,7 @@
         {
             "id": "page-contact",
             "title": "Contact",
-            "info": "We cannot have peace among men whose hearts find delight in killing any living creature. &mdash; Rachel Carson",
+            "info": "Sperând că v-am trezit interesul, vă invit să-mi scrieți. Aș aprecia foarte mult dacă v-ati spune părerea. Este foarte important pentru progresul meu. Vă mulțumesc pentru atenția acordată!",
             "image": "images/contact.png",
             "alt": "woman",
             "form": {
