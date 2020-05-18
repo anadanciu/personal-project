@@ -1,0 +1,162 @@
+{
+    "menuItems": [
+        {
+            "text": "Acasă",
+            "id": "page-home"
+        },
+        {
+            "text": "Despre mine",
+            "id": "page-about"
+        },
+        {
+            "text": "Curriculum vitae",
+            "id": "page-cv"
+        },
+        {
+            "text": "Contact",
+            "id": "page-contact"
+        }
+    ],
+    "social": [
+        {
+            "channel": "facebook",
+            "title": "facebook",
+            "href": "#"
+        },
+        {
+            "channel": "twitter",
+            "title": "twitter",
+            "href": "#"
+        },
+        {
+            "channel": "linkedin",
+            "title": "linkedin",
+            "href": "#"
+        },
+        {
+            "language": "en",
+            "title": "english",
+            "href": "#"
+        }
+    ],
+    "backgroundImage": [
+        {
+            "large": "images/large/style_1920.jpg",
+            "medium": "images/medium/style_1280.jpg",
+            "small": "images/small/style_640.jpg",
+            "alt": "style",
+            "text": "st·il"
+        },
+        {
+            "large": "images/large/team_player_1920.jpg",
+            "medium": "images/medium/team_player_1280.jpg",
+            "small": "images/small/team_player_640.jpg",
+            "alt": "team player",
+            "text": "spir·it de echi·pă"
+        },
+        {
+            "large": "images/large/fast_learning_1920.jpg",
+            "medium": "images/medium/fast_learning_1280.jpg",
+            "small": "images/small/fast_learning_640.jpg",
+            "alt": "fast learning",
+            "text": "înv·ăța·re rapi·dă"
+        },
+        {
+            "large": "images/large/flexibility_1920.jpg",
+            "medium": "images/medium/flexibility_1289.jpg",
+            "small": "images/small/flexibility_640.jpg",
+            "alt": "flexibility",
+            "text": "flex·ibi·litate"
+        },
+        {
+            "large": "images/large/professionalism_1920.jpg",
+            "medium": "images/medium/professionalism_1280.jpg",
+            "small": "images/small/professionalism_640.jpg",
+            "alt": "professionalism",
+            "text": "pro·fes·i·ona·lism"
+        },
+        {
+            "large": "images/large/punctuality_1920.jpg",
+            "medium": "images/medium/punctuality_1280.jpg",
+            "small": "images/small/punctuality_640.jpg",
+            "alt": "punctuality",
+            "text": "pun·ctu·al·ita·te"
+        },
+        {
+            "large": "images/large/passion_1920.jpg",
+            "medium": "images/medium/passion_1280.jpg",
+            "small": "images/small/passion_640.jpg",
+            "alt": "passion",
+            "text": "pas·i·une"
+        },
+        {
+            "large": "images/large/leisure_1920.jpg",
+            "medium": "images/medium/leisure_1280.jpg",
+            "small": "images/small/leisure_640.jpg",
+            "alt": "leisure",
+            "text": "rela·xar·e"
+        },
+        {
+            "large": "images/large/competence_1920.jpg",
+            "medium": "images/medium/competence_1280.jpg",
+            "small": "images/small/competence_640.jpg",
+            "alt": "competence",
+            "text": "c·om·pe·ten·ță"
+        },
+        {
+            "large": "images/large/creativity_1920.jpg",
+            "medium": "images/medium/creativity_1280.jpg",
+            "small": "images/small/creativity_640.jpg",
+            "alt": "creativity",
+            "text": "cre·ati·vi·tate"
+        },
+        {
+            "large": "images/large/design_responsiveness_1920.jpg",
+            "medium": "images/medium/design_responsiveness_1280.jpg",
+            "small": "images/small/design_responsiveness_640.jpg",
+            "alt": "design responsiveness",
+            "text": "de·sign din·a·mic"
+        },
+        {
+            "large": "images/large/experience_1920.jpg",
+            "medium": "images/medium/experience_1280.jpg",
+            "small": "images/small/experience_640.jpg",
+            "alt": "experience",
+            "text": "e·xp·erien·ță"
+        }
+    ],
+    "pages": [
+        {
+            "id": "page-home",
+            "title": "Acasă"
+        },
+        {
+            "id": "page-about",
+            "title": "Despre mine",
+            "info": "Bună, sunt Anamaria Danciu, dar apropiații imi zic Ana. Imi place să scriu cod pentru web, să dau viață paginilor, să învăț lucruri noi, urmând riguros un design bine pus la punct. Iubesc să fac asta și din fericire, un loc de muncă în acest domeniu poate fi încadrat la hobby-urile mele. Hmm...ce altceva imi mai place sa fac? Aș fi vrut să spun că fac lucruri inedite, însă îmi place să merg la cinema, să citesc cărți interesante și să ascult muzică. De preferat, când scriu cod. Cui nu-i plac aceste activități, nu-i așa? Vă invit să-mi aflați cursul progresului meu la secțiunea Curriculum Vitae :)",
+            "image": "images/woman.png",
+            "alt": "woman"
+        },
+        {
+            "id": "page-cv",
+            "title": "Curriculum vitae",
+            "info": "We cannot have peace among men whose hearts find delight in killing any living creature. &mdash; Rachel Carson",
+            "image": "images/student.jpg",
+            "alt": "woman"
+        },
+        {
+            "id": "page-contact",
+            "title": "Contact",
+            "info": "Sperând că v-am trezit interesul, vă invit să-mi scrieți. Aș aprecia foarte mult dacă v-ati spune părerea. Este foarte important pentru progresul meu. Vă mulțumesc pentru atenția acordată!",
+            "image": "images/contact.png",
+            "alt": "woman",
+            "form": {
+                "name": "Nume",
+                "company": "Companie",
+                "email": "Email",
+                "message": "Mesaj",
+                "submitButton": "Trimite"
+            }
+        }
+    ]
+}

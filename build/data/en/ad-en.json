@@ -1,0 +1,162 @@
+{
+    "menuItems": [
+        {
+            "text": "Home",
+            "id": "page-home"
+        },
+        {
+            "text": "About me",
+            "id": "page-about"
+        },
+        {
+            "text": "Curriculum vitae",
+            "id": "page-cv"
+        },
+        {
+            "text": "Contact",
+            "id": "page-contact"
+        }
+    ],
+    "social": [
+        {
+            "channel": "facebook",
+            "title": "facebook",
+            "href": "#"
+        },
+        {
+            "channel": "twitter",
+            "title": "twitter",
+            "href": "#"
+        },
+        {
+            "channel": "linkedin",
+            "title": "linkedin",
+            "href": "#"
+        },
+        {
+            "language": "ro",
+            "title": "română",
+            "href": "#"
+        }
+    ],
+    "backgroundImage": [
+        {
+            "large": "images/large/style_1920.jpg",
+            "medium": "images/medium/style_1280.jpg",
+            "small": "images/small/style_640.jpg",
+            "alt": "style",
+            "text": "sty·le"
+        },
+        {
+            "large": "images/large/team_player_1920.jpg",
+            "medium": "images/medium/team_player_1280.jpg",
+            "small": "images/small/team_player_640.jpg",
+            "alt": "team player",
+            "text": "te·am play·er"
+        },
+        {
+            "large": "images/large/fast_learning_1920.jpg",
+            "medium": "images/medium/fast_learning_1280.jpg",
+            "small": "images/small/fast_learning_640.jpg",
+            "alt": "fast learning",
+            "text": "f·a·st le·a·rn·ing"
+        },
+        {
+            "large": "images/large/flexibility_1920.jpg",
+            "medium": "images/medium/flexibility_1289.jpg",
+            "small": "images/small/flexibility_640.jpg",
+            "alt": "flexibility",
+            "text": "flex·ibi·lity"
+        },
+        {
+            "large": "images/large/professionalism_1920.jpg",
+            "medium": "images/medium/professionalism_1280.jpg",
+            "small": "images/small/professionalism_640.jpg",
+            "alt": "professionalism",
+            "text": "pro·fess·i·ona·lism"
+        },
+        {
+            "large": "images/large/punctuality_1920.jpg",
+            "medium": "images/medium/punctuality_1280.jpg",
+            "small": "images/small/punctuality_640.jpg",
+            "alt": "punctuality",
+            "text": "pun·ctu·al·ity"
+        },
+        {
+            "large": "images/large/passion_1920.jpg",
+            "medium": "images/medium/passion_1280.jpg",
+            "small": "images/small/passion_640.jpg",
+            "alt": "passion",
+            "text": "pa·ss·i·on"
+        },
+        {
+            "large": "images/large/leisure_1920.jpg",
+            "medium": "images/medium/leisure_1280.jpg",
+            "small": "images/small/leisure_640.jpg",
+            "alt": "leisure",
+            "text": "le·i·su·re"
+        },
+        {
+            "large": "images/large/competence_1920.jpg",
+            "medium": "images/medium/competence_1280.jpg",
+            "small": "images/small/competence_640.jpg",
+            "alt": "competence",
+            "text": "c·om·pe·ten·ce"
+        },
+        {
+            "large": "images/large/creativity_1920.jpg",
+            "medium": "images/medium/creativity_1280.jpg",
+            "small": "images/small/creativity_640.jpg",
+            "alt": "creativity",
+            "text": "cre·ati·vi·ty"
+        },
+        {
+            "large": "images/large/design_responsiveness_1920.jpg",
+            "medium": "images/medium/design_responsiveness_1280.jpg",
+            "small": "images/small/design_responsiveness_640.jpg",
+            "alt": "design responsiveness",
+            "text": "de·sign re·spon·sive·ness"
+        },
+        {
+            "large": "images/large/experience_1920.jpg",
+            "medium": "images/medium/experience_1280.jpg",
+            "small": "images/small/experience_640.jpg",
+            "alt": "experience",
+            "text": "e·xp·erien·ce"
+        }
+    ],
+    "pages": [
+        {
+            "id": "page-home",
+            "title": "Home"
+        },
+        {
+            "id": "page-about",
+            "title": "About me",
+            "info": "We cannot have peace among men whose hearts find delight in killing any living creature. &mdash; Rachel Carson",
+            "image": "images/woman.png",
+            "alt": "woman"
+        },
+        {
+            "id": "page-cv",
+            "title": "Curriculum vitae",
+            "info": "We cannot have peace among men whose hearts find delight in killing any living creature. &mdash; Rachel Carson",
+            "image": "images/student.jpg",
+            "alt": "woman"
+        },
+        {
+            "id": "page-contact",
+            "title": "Contact",
+            "info": "We cannot have peace among men whose hearts find delight in killing any living creature. &mdash; Rachel Carson",
+            "image": "images/contact.png",
+            "alt": "woman",
+            "form": {
+                "name": "Name",
+                "company": "Company",
+                "email": "Email",
+                "message": "Message",
+                "submitButton": "Send"
+            }
+        }
+    ]
+}
