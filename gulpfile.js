@@ -1,21 +1,17 @@
 
 //require
 var gulp = require('gulp');
-var uglify = require('gulp-uglify');
-var sass = require('gulp-sass');
 var plumber = require('gulp-plumber');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
-var prefix = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
+var prefix = require('gulp-autoprefixer');
 var del = require('del');
 var traceur = require('gulp-traceur');
-var concat = require('gulp-concat');
-var config = require('gulp-config');
 var mainBowerFiles = require('main-bower-files');
-//var bower = require('gulp-bower-files');
 var gulpFilter = require('gulp-filter');
 var order = require('gulp-order');
+var sass = require('gulp-sass'); //run instead "npm install node-sass@latest"
 
 
 var src = {

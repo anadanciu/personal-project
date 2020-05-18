@@ -68,22 +68,42 @@ GENERAL WHITE FORM
 .ad-form label {
   color: rgba(255, 255, 255, 0.8); }
 
-.ad-form md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused .md-input, .ad-form md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+.ad-form md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused .md-input,
+.ad-form md-input-container:not(.md-input-invalid).md-input-focused .md-input {
   border-color: rgba(255, 255, 255, 0.8);
   color: rgba(255, 255, 255, 0.8); }
 
-.ad-form md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused md-icon, .ad-form md-input-container:not(.md-input-invalid).md-input-focused md-icon, .ad-form md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused md-icon, .ad-form md-input-container:not(.md-input-invalid).md-input-focused md-icon .fa, .ad-form md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused label, .ad-form md-input-container:not(.md-input-invalid).md-input-focused label, .ad-form md-input-container.md-default-theme .md-input, .ad-form md-input-container .md-input, .ad-form md-input-container.md-default-theme:not(.md-input-invalid).md-input-has-value label, .ad-form md-input-container:not(.md-input-invalid).md-input-has-value label {
+.ad-form md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused md-icon,
+.ad-form md-input-container:not(.md-input-invalid).md-input-focused md-icon, .ad-form md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused md-icon,
+.ad-form md-input-container:not(.md-input-invalid).md-input-focused md-icon .fa,
+.ad-form md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused label,
+.ad-form md-input-container:not(.md-input-invalid).md-input-focused label,
+.ad-form md-input-container.md-default-theme .md-input,
+.ad-form md-input-container .md-input,
+.ad-form md-input-container.md-default-theme:not(.md-input-invalid).md-input-has-value label,
+.ad-form md-input-container:not(.md-input-invalid).md-input-has-value label {
   color: rgba(255, 255, 255, 0.8);
   border-color: rgba(255, 255, 255, 0.8); }
 
-.ad-form md-input-container.md-default-theme.md-input-invalid.md-input-focused label, .ad-form md-input-container.md-input-invalid.md-input-focused label, .ad-form md-input-container.md-default-theme.md-input-invalid.md-input-focused label, .ad-form md-input-container.md-input-invalid.md-input-has-value label, .ad-form md-input-container.md-default-theme.md-input-invalid.md-input-focused label, .ad-form md-input-container.md-input-invalid.md-input-has-value md-icon, .ad-form md-input-container.md-default-theme.md-input-invalid.md-input-focused md-icon, .ad-form md-input-container.md-input-invalid.md-input-focused md-icon, .ad-form md-input-container.md-default-theme.md-input-invalid.md-input-focused .md-input, .ad-form md-input-container.md-input-invalid.md-input-focused .md-input, .ad-form md-input-container.md-default-theme.md-input-invalid .md-input, .ad-form md-input-container.md-input-invalid .md-input, .ad-form md-input-container.md-input-invalid.md-input-focused md-icon .fa {
+.ad-form md-input-container.md-default-theme.md-input-invalid.md-input-focused label,
+.ad-form md-input-container.md-input-invalid.md-input-focused label, .ad-form md-input-container.md-default-theme.md-input-invalid.md-input-focused label,
+.ad-form md-input-container.md-input-invalid.md-input-has-value label, .ad-form md-input-container.md-default-theme.md-input-invalid.md-input-focused label,
+.ad-form md-input-container.md-input-invalid.md-input-has-value md-icon,
+.ad-form md-input-container.md-default-theme.md-input-invalid.md-input-focused md-icon,
+.ad-form md-input-container.md-input-invalid.md-input-focused md-icon,
+.ad-form md-input-container.md-default-theme.md-input-invalid.md-input-focused .md-input,
+.ad-form md-input-container.md-input-invalid.md-input-focused .md-input,
+.ad-form md-input-container.md-default-theme.md-input-invalid .md-input,
+.ad-form md-input-container.md-input-invalid .md-input,
+.ad-form md-input-container.md-input-invalid.md-input-focused md-icon .fa {
   border-color: #ff9966;
   color: #ff9966; }
 
 .ad-form md-input-container:not(.md-input-has-value) input:not(:focus) {
   border-color: rgba(255, 255, 255, 0.8); }
 
-.ad-form md-input-container:not(md-input-focused).md-input-invalid, .ad-form md-input-container:not(md-input-focused).md-input-invalid label {
+.ad-form md-input-container:not(md-input-focused).md-input-invalid,
+.ad-form md-input-container:not(md-input-focused).md-input-invalid label {
   color: rgba(255, 255, 255, 0.8); }
 
 .ad-form md-input-container > md-icon {
