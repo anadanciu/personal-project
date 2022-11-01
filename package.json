@@ -20,7 +20,7 @@
     "bower": "^1.8.0",
     "browser-sync": "^2.17.6",
     "del": "^2.2.2",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-bower-files": "^0.2.7",
     "gulp-filter": "^4.0.0",
