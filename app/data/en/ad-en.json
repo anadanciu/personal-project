@@ -1,3 +1,5 @@
+
+text/x-generic ad-en.json ( UTF-8 Unicode text, with very long lines, with CRLF line terminators )
 {
     "menuItems": [
         {
@@ -9,29 +11,20 @@
             "id": "page-about"
         },
         {
-            "text": "Curriculum vitae",
-            "id": "page-cv"
-        },
-        {
             "text": "Contact",
             "id": "page-contact"
         }
     ],
     "social": [
         {
-            "channel": "facebook",
-            "title": "facebook",
-            "href": "#"
-        },
-        {
             "channel": "twitter",
             "title": "twitter",
-            "href": "#"
+            "href": "https://twitter.com/anadanciu2"
         },
         {
             "channel": "linkedin",
             "title": "linkedin",
-            "href": "#"
+            "href": "https://www.linkedin.com/in/anamaria-danciu-8b786291/"
         },
         {
             "language": "ro",
@@ -133,21 +126,23 @@
         {
             "id": "page-about",
             "title": "About me",
-            "info": "We cannot have peace among men whose hearts find delight in killing any living creature. &mdash; Rachel Carson",
-            "image": "images/woman.png",
-            "alt": "woman"
-        },
-        {
-            "id": "page-cv",
-            "title": "Curriculum vitae",
-            "info": "We cannot have peace among men whose hearts find delight in killing any living creature. &mdash; Rachel Carson",
-            "image": "images/student.jpg",
-            "alt": "woman"
+            "info": "Hello, my name is Anamaria Nanes and my family and friends call me Ana. I am defined by my desire to deliver excellence in every aspect of my life. I constantly strive to learn fast, adapt to new challenges, and keep my motivation high. At the same time, working with a team of professionals brings me a lot of excitement, because together we can deliver creative solutions that last and have a positive impact on society. I am a well-organized person with proven problem-solving abilities and with excellent communication skills.  My core belief is that if I really desire to succeed, I will find a way.
+
+            I am skilled in HTML, CSS, Javascript(ES6), JQuery and I have experience with:
+             - SASS, Bootstrap, for responsive and scalable designs and mobile optimization, cross-browser compatibility issues and solutions;
+             - performance and optimization problems, and a demonstrated ability to both diagnose and prevent these;
+             - web development best practices (BEM naming convention in CSS, Lint, etc);
+            - NPM package manager for managing dependencies and build processes;
+            - Git version control;
+            - Agile methodology, Jira, and Confluence for project management, working very closely with designers, back-end developers, and QA teams;
+            - popular UI web frameworks like Angular, Vue, and lately React, which has become my frontend framework of choice in tackling new challenges.",
+            "image": "images/an_dan.jpg",
+            "alt": "an_dan"
         },
         {
             "id": "page-contact",
             "title": "Contact",
-            "info": "We cannot have peace among men whose hearts find delight in killing any living creature. &mdash; Rachel Carson",
+            "info": "I invite you to write to me if I have piqued your curiosity. I would be grateful if you could share your thoughts. It's important to my progress. Thank you for your time!",
             "image": "images/contact.png",
             "alt": "woman",
             "form": {

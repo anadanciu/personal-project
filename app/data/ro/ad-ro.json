@@ -133,7 +133,16 @@
         {
             "id": "page-about",
             "title": "Despre mine",
-            "info": "Bună, sunt Anamaria Danciu, dar apropiații imi zic Ana. Imi place să scriu cod pentru web, să dau viață paginilor, să învăț lucruri noi, urmând riguros un design bine pus la punct. Iubesc să fac asta și din fericire, un loc de muncă în acest domeniu poate fi încadrat la hobby-urile mele. Hmm...ce altceva imi mai place sa fac? Aș fi vrut să spun că fac lucruri inedite, însă îmi place să merg la cinema, să citesc cărți interesante și să ascult muzică. De preferat, când scriu cod. Cui nu-i plac aceste activități, nu-i așa? Vă invit să-mi aflați cursul progresului meu la secțiunea Curriculum Vitae :)",
+            "info": "Bună, sunt Anamaria Naneș, dar apropiații imi zic Ana. Principala mea calitate este dorința mea de a oferi excelență în fiecare aspect al vieții mele. Mă străduiesc în mod constant să învăț rapid, să mă adaptez la noile provocări și să îmi mențin motivația ridicată. În același timp, lucrul cu o echipă de profesioniști îmi aduce mult entuziasm, pentru că împreună putem oferi soluții creative și sustenabile, cu un impact pozitiv asupra societății. Sunt o persoană bine organizată, cu abilități dovedite de rezolvare a problemelor și cu abilități excelente de comunicare. Convingerea mea de bază este că, dacă îmi doresc cu adevărat să reușesc, voi găsi o cale.
+
+            Sunt calificată în HTML, CSS, Javascript (ES6), JQuery și am experiență cu:
+             - SASS, Bootstrap, pentru modele scalabile și optimizate pentru toate dimensiunile, probleme de compatibilitate între browsere și găsirea unor soluții pentru ele;
+             - probleme de performanță și optimizare și o capacitate demonstrată de a le diagnostica și de a preveni;
+            - cele mai bune practici de dezvoltare web (convenția de denumire BEM în CSS, Lint, etc);
+            - Manager de pachete NPM pentru gestionarea dependințelor și procesele de construire;
+            - Controlul versionării Git;
+            - Metodologie Agile, Jira și Confluence pentru managementul proiectelor, lucrând foarte strâns cu designeri, dezvoltatori back-end și echipele de QA;
+            - framework-uri web populare cu interfață de utilizare, cum ar fi Angular, Vue și în ultima perioadă, React, care a devenit librăria mea preferată pentru dezvoltare front end pentru a face față noilor provocări. ",
             "image": "images/woman.png",
             "alt": "woman"
         },
